@@ -1,0 +1,22 @@
+# 1. c = getchar() != EOF
+
+If an user input EOF (C-d), it assigns 0 to the variable c . Otherwise, assigns 1.
+
+# 2. Why getchar is int type
+
+To accept EOF, which is 0xFFFFFFFF.
+
+# 3. i++ vs ++i
+
+Prefix ++i increases the variable then evaluate the result. Suffix i++ returns the value first, then increase it. For instance, when i has been set 1, j = ++i makes j 2, j = i++ makes j 1, and i will be 2 in both cases.
+
+# 6. i = i++
+
+Undefined. :)
+
+# 5. Definition of String in C Language
+
+String is created as an array of char type.
+
+# 6. What happens when you give getline chars 'a', 'b', 'c', and EOF
+
