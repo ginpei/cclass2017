@@ -1,44 +1,61 @@
 #include <stdio.h>
+#include <string.h>
+#include "getwords.h"
 
 #define ERR_ARGS 1
+#define ERR_FILE_OPEN 2
+#define ERR_FILE_READ 3
 
-int checkArgs(int argc, char *argv[]);
-void printStartMessage(int argc, char *argv[]);
+const char * const definedCommands[] = {
+	"Image",
+	"lineTo",
+	"End",
+	"print",
+	"draw",
+	"translate",
+	"child",
+};
+const int numDefinedOperators = sizeof(definedCommands) / sizeof(definedCommands[0]);
+// TODO image definition and comment
 
 int main(int argc, char *argv[]) {
-	if (checkArgs(argc, argv) != 0) {
-		return ERR_ARGS;
-	}
-
-	printStartMessage(argc, argv);
-
-	for (int i = 0; i < argc; i++) {
-		printf("%d %s\n", i, argv[i]);
-	}
-	return 0;
-}
-
-/**
- * Returns error if the arguments are not correct.
- */
-int checkArgs(int argc, char *argv[]) {
 	if (argc != 2) {
 		return ERR_ARGS;
 	}
 
+	const char *path = argv[1];
+	printf("%s started on %s\n", argv[0], __TIME__);
+	printf("Input file: %s\n", path);
+
+	FILE *fp = fopen(path, "r");
+	if (fp == NULL) {
+		return ERR_FILE_OPEN;
+	}
+
+	int counts[numDefinedOperators] = { 0 };
+
+	const int max = 1024;
+	char line[max];
+	while (fgets(line, max, fp) != NULL) {
+		const int maxTokens = 8;
+		char *tokens[maxTokens];
+		const int numTokens = getwords(line, tokens, maxTokens);
+
+		const char *command = tokens[0];
+		for (int i = 0; i < numDefinedOperators; i++) {
+			const char *definedCommand = definedCommands[i];
+			if (strcmp(command, definedCommand) == 0) {
+				counts[i]++;
+				break;
+			}
+		}
+	}
+
+	for (int i = 0; i < numDefinedOperators; i++) {
+		printf("%d %s command(s) \n", counts[i], definedCommands[i]);
+	}
+
+	fclose(fp);
+
 	return 0;
-}
-
-/**
- * ```
- * ./draw1a started on Wed Jul 2 21:08:40 MST 2010
- * ```
- */
-void printStartMessage(int argc, char *argv[]) {
-	// TODO time
-	const char *pPath = argv[0];
-	printf("%s started on %s\n", pPath, __TIME__);
-
-	const char *pFilePath = argv[1];
-	printf("Input file: %s\n", pFilePath);
 }
