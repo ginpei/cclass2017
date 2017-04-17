@@ -1,51 +1,28 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
-
 #include "lib/getline2.h"
 
-int countSentences(const char line[]);
-int countVowels(const char line[]);
-int countLetters(const char line[], const char candidates[], const int numCandidates);
-
 int main() {
-	const int max = 1024;
-	char line[max];
-	int numSentences = 0;
-	int numVowels = 0;
+	int max = 128;
+	char line1[max];
+	char line2[max];
+	char *lineCat;
 
-	printf("C-d to finish.\n");
-	while (1) {
-		if (getline2(line, max) == EOF) {
-			break;
-		}
+	printf("Input two phrases so that you'll see them concatenated.\n");
+	printf("1> ");
+	getline2(line1, max);
+	printf("2> ");
+	getline2(line2, max);
 
-		numSentences += countSentences(line);
-		numVowels += countVowels(line);
-	}
+	lineCat = malloc(strlen(line1) + strlen(line2) + 1);
 
-	printf("\n");
-	printf("You entered %d sentences containing %d vowels.\n", numSentences, numVowels);
-}
+	strcpy(lineCat, line1);
+	strcat(lineCat, line2);
 
-int countSentences(const char line[]) {
-	const char candidates[] = ".";
-	return countLetters(line, candidates, 1);
-}
+	printf("Result: %s\n", lineCat);
 
-int countVowels(const char line[]) {
-	const char candidates[] = "aeiou";
-	return countLetters(line, candidates, 5);
-}
+	free(lineCat);
 
-int countLetters(const char line[], const char *candidates, const int numCandidates) {
-	int count = 0;
-	for (int i = 0; i < numCandidates; i++) {
-		const char *candidate = candidates + i;
-		for (const char *p = line; *p != '\0'; p++) {
-			if (*p == *candidate) {
-				count += 1;
-			}
-		}
-	}
-	return count;
+	return 0;
 }

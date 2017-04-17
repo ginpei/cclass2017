@@ -1,30 +1,51 @@
 #include <stdio.h>
+#include <string.h>
 
 #include "lib/getline2.h"
 
-int reverse(char line[], int len);
+int countSentences(const char line[]);
+int countVowels(const char line[]);
+int countLetters(const char line[], const char candidates[], const int numCandidates);
 
 int main() {
-	const int max = 32;
+	const int max = 1024;
 	char line[max];
+	int numSentences = 0;
+	int numVowels = 0;
+
+	printf("C-d to finish.\n");
 	while (1) {
-		printf("Input lines > ");
-		const int length = getline2(line, max);
-		if (length == EOF) {
-			printf("\n");
+		if (getline2(line, max) == EOF) {
 			break;
 		}
 
-		reverse(line, length);
+		numSentences += countSentences(line);
+		numVowels += countVowels(line);
 	}
-	return 0;
+
+	printf("\n");
+	printf("You entered %d sentences containing %d vowels.\n", numSentences, numVowels);
 }
 
-int reverse(char line[], int len) {
-		for (char *p = line + len - 1; p >= line; p--) {
-			printf("%c", *p);
-		}
-		printf("\n");
+int countSentences(const char line[]) {
+	const char candidates[] = ".";
+	return countLetters(line, candidates, 1);
+}
 
-		return 0;
+int countVowels(const char line[]) {
+	const char candidates[] = "aeiou";
+	return countLetters(line, candidates, 5);
+}
+
+int countLetters(const char line[], const char *candidates, const int numCandidates) {
+	int count = 0;
+	for (int i = 0; i < numCandidates; i++) {
+		const char *candidate = candidates + i;
+		for (const char *p = line; *p != '\0'; p++) {
+			if (*p == *candidate) {
+				count += 1;
+			}
+		}
+	}
+	return count;
 }
