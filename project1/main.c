@@ -20,22 +20,6 @@ const char * const definedCommands[] = {
 const int numDefinedOperators = sizeof(definedCommands) / sizeof(definedCommands[0]);
 
 int main(int argc, char *argv[]) {
-	struct Struct_Student {
-		int id;
-		char name[128];
-	};
-	typedef struct Struct_Student Student;
-	Student students[] = {
-		{ 1, "Alice" },
-		{ 2, "Bob" },
-		{ 0, "" },  // guard
-	};
-	for (int i = 0; students[i].id != 0; i++) {
-		Student student = students[i];
-		printf("#%05d %s\n", student.id, student.name);
-	}
-	return 0;
-
 	if (argc != 2) {
 		return ERR_ARGS;
 	}
