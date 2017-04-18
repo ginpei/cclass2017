@@ -7,6 +7,8 @@
 #define ERR_FILE_OPEN 2
 #define ERR_FILE_READ 3
 
+int countLine(int counts[], char line[]);
+
 const char *imageDefinitionKeyword = "Image";
 const char *commendStartKeyword = "#";
 const char * const definedCommands[] = {
@@ -48,26 +50,7 @@ int main(int argc, char *argv[]) {
 	const int max = 1024;
 	char line[max];
 	while (fgets(line, max, fp) != NULL) {
-		const int maxTokens = 8;
-		char *tokens[maxTokens];
-		const int numTokens = getwords(line, tokens, maxTokens);
-		const char *command = tokens[0];
-
-		if (strcmp(command, imageDefinitionKeyword) == 0) {
-			counts[indexImageDefinitionCount]++;
-		}
-		else if (strstr(command, commendStartKeyword) == command) {
-			counts[indexCommentCount]++;
-		}
-		else {
-			for (int i = 0; i < numDefinedCommands; i++) {
-				const char *definedCommand = definedCommands[i];
-				if (strcmp(command, definedCommand) == 0) {
-					counts[i]++;
-					break;
-				}
-			}
-		}
+		countLine(counts, line);
 	}
 
 	// print the result
@@ -79,6 +62,31 @@ int main(int argc, char *argv[]) {
 
 	// close file
 	fclose(fp);
+
+	return 0;
+}
+
+int countLine(int counts[], char line[]) {
+	const int maxTokens = 8;
+	char *tokens[maxTokens];
+	const int numTokens = getwords(line, tokens, maxTokens);
+	const char *command = tokens[0];
+
+	if (strcmp(command, imageDefinitionKeyword) == 0) {
+		counts[indexImageDefinitionCount]++;
+	}
+	else if (strstr(command, commendStartKeyword) == command) {
+		counts[indexCommentCount]++;
+	}
+	else {
+		for (int i = 0; i < numDefinedCommands; i++) {
+			const char *definedCommand = definedCommands[i];
+			if (strcmp(command, definedCommand) == 0) {
+				counts[i]++;
+				break;
+			}
+		}
+	}
 
 	return 0;
 }
