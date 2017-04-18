@@ -14,19 +14,31 @@ NSString *getLine(int maxLength) {
     }
     
     char inputChars[maxLength];
-    fgets(inputChars, maxLength, stdin);
+    char *result = fgets(inputChars, maxLength, stdin);
     
-    NSString *inputString = [NSString stringWithUTF8String:inputChars];
-    return inputString;
+    if (result != NULL) {
+        NSString *inputString = [NSString stringWithUTF8String:inputChars];
+        return inputString;
+    }
+    else {
+        return NULL;
+    }
 }
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        printf("Input a string: \n");
-        NSString *inputString = getLine(255);
+        while (1) {
+            NSLog(@"Input a string: \n");
+            NSString *inputString = getLine(255);
+            if (inputString == NULL) {
+                break;
+            }
+            
+            // print NSString object
+            NSLog(@"Input was: %@", inputString);
+        }
         
-        // print NSString object
-        NSLog(@"Input was: %@", inputString);
+        NSLog(@"Bye!");
     }
     return 0;
 }
