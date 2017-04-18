@@ -17,13 +17,17 @@ const char * const definedCommands[] = {
 	"translate",
 	"child",
 };
-const int numDefinedOperators = sizeof(definedCommands) / sizeof(definedCommands[0]);
+// const int numDefinedCommands = sizeof(definedCommands) / sizeof(definedCommands[0]);
+#define numDefinedCommands 6
+	const int indexImageDefinitionCount = numDefinedCommands + 0;
+	const int indexCommentCount = numDefinedCommands + 1;
 
 int main(int argc, char *argv[]) {
 	if (argc != 2) {
 		return ERR_ARGS;
 	}
 
+	// print start message
 	const char *path = argv[1];
 	printf("%s started on ", argv[0]);
 	fflush(stdout);
@@ -31,15 +35,16 @@ int main(int argc, char *argv[]) {
 	printf("\n");
 	printf("Input file: %s\n", path);
 
+	// open file
 	FILE *fp = fopen(path, "r");
 	if (fp == NULL) {
 		return ERR_FILE_OPEN;
 	}
 
-	int counts[numDefinedOperators + 2] = { 0 };
-	const int indexImageDefinitionCount = numDefinedOperators;
-	const int indexCommentCount = numDefinedOperators + 1;
+	// prepare counts: 6 commands + 1 image definition + 1 comment
+	int counts[numDefinedCommands + 2] = { 0 };
 
+	// count
 	const int max = 1024;
 	char line[max];
 	while (fgets(line, max, fp) != NULL) {
@@ -55,7 +60,7 @@ int main(int argc, char *argv[]) {
 			counts[indexCommentCount]++;
 		}
 		else {
-			for (int i = 0; i < numDefinedOperators; i++) {
+			for (int i = 0; i < numDefinedCommands; i++) {
 				const char *definedCommand = definedCommands[i];
 				if (strcmp(command, definedCommand) == 0) {
 					counts[i]++;
@@ -65,12 +70,14 @@ int main(int argc, char *argv[]) {
 		}
 	}
 
+	// print the result
 	printf("%d %s definition(s)\n", counts[indexImageDefinitionCount], imageDefinitionKeyword);
-	for (int i = 0; i < numDefinedOperators; i++) {
+	for (int i = 0; i < numDefinedCommands; i++) {
 		printf("%d %s command(s)\n", counts[i], definedCommands[i]);
 	}
 	printf("%d comment(s)\n", counts[indexCommentCount]);
 
+	// close file
 	fclose(fp);
 
 	return 0;
