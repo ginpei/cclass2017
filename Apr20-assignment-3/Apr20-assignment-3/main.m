@@ -33,7 +33,7 @@ int main(int argc, const char * argv[]) {
                 break;
             }
             
-            if ([question isCorrectAnswerInString:line]) {
+            if ([question answerInString:line]) {
                 printf("Correct.\n");
             }
             else {

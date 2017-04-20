@@ -12,11 +12,15 @@
 
 @property int num1;
 @property int num2;
+@property int userAnswer;
 
 + (instancetype) newQuestion;
 - (NSString *) getQuestion;
 - (void) generateRandomQuestion;
-- (BOOL) isCorrectAnswer: (int) answer;
-- (BOOL) isCorrectAnswerInString: (NSString *) answerString;
+- (void) setAnswer: (int) answer;
+- (BOOL) isCorrect;
+
+- (BOOL) answer: (int) answer;
+- (BOOL) answerInString: (NSString *) answerString;
 
 @end

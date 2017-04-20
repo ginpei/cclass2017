@@ -26,14 +26,23 @@
     _num2 = arc4random_uniform(98) + 1;
 }
 
-- (BOOL) isCorrectAnswer: (int) userAnswer {
-    int correctAnswer = _num1 + _num2;
-    return userAnswer == correctAnswer;
+- (void) setAnswer: (int) answer {
+    _userAnswer = answer;
 }
 
-- (BOOL) isCorrectAnswerInString: (NSString *) answerString {
+- (BOOL) isCorrect {
+    int correctAnswer = _num1 + _num2;
+    return _userAnswer == correctAnswer;
+}
+
+- (BOOL) answer: (int) userAnswer {
+    [self setAnswer:userAnswer];
+    return [self isCorrect];
+}
+
+- (BOOL) answerInString: (NSString *) answerString {
     int answer = numberize(answerString);
-    return [self isCorrectAnswer:answer];
+    return [self answer:answer];
 }
 
 int numberize(NSString *original) {
