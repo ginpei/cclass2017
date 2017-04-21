@@ -12,10 +12,14 @@
 
 @property int numQuestions;
 @property NSMutableArray *questions;
+@property int numRight;
+@property int numWrong;
 
 + (instancetype) newGameFor: (int) numQuestions;
 - (void) start;
 - (BOOL) iterate;
 - (void) printResult;
+- (void) printWrongQuestins;
+- (float) calcCorrectRate;
 
 @end

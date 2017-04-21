@@ -43,9 +43,11 @@
     }
     
     if ([question answerInString:line]) {
+        _numRight += 1;
         printf("Correct.\n");
     }
     else {
+        _numWrong += 1;
         printf("Wrong.\n");
     }
 
@@ -53,20 +55,21 @@
 }
 
 - (void) printResult {
-    int numRight = 0;
-    int numWrong = 0;
-    for (int i = 0; i < [_questions count]; i++) {
-        AdditionQuestion *question = _questions[i];
-        if ([question isCorrect]) {
-            numRight++;
-        }
-        else {
-            numWrong++;
+    int rate = [self calcCorrectRate] * 100;
+    printf("Score: %d right, %d wrong ---- %d %%\n", _numRight, _numWrong, rate);
+}
+
+- (void) printWrongQuestins {
+    printf("Here are questions you answered wrong:\n");
+    for (AdditionQuestion *question in _questions) {
+        if (![question isCorrect]) {
+            printf("- %s\n", [[question getQuestion] UTF8String]);
         }
     }
-    
-    int rate = numRight * 100 / [_questions count];
-    printf("Score: %d right, %d wrong ---- %d %%\n", numRight, numWrong, rate);
+}
+
+- (float) calcCorrectRate {
+    return ((float) _numRight) / [_questions count];
 }
 
 NSString *getLine() {

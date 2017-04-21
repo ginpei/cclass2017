@@ -14,6 +14,9 @@ int main(int argc, const char * argv[]) {
         GameManager *gameManager = [GameManager newGameFor:10];
         [gameManager start];
         [gameManager printResult];
+        if (gameManager.numWrong > 0) {
+            [gameManager printWrongQuestins];
+        }
         printf("Bye.\n");
     }
     return 0;
