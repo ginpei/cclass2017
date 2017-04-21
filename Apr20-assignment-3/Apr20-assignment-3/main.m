@@ -13,7 +13,7 @@ int main(int argc, const char * argv[]) {
     @autoreleasepool {
         GameManager *gameManager = [GameManager newGameFor:10];
         [gameManager start];
-        
+        [gameManager printResult];
         printf("Bye.\n");
     }
     return 0;

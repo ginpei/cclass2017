@@ -11,10 +11,11 @@
 @interface GameManager : NSObject
 
 @property int numQuestions;
-@property NSArray *questions;
+@property NSMutableArray *questions;
 
 + (instancetype) newGameFor: (int) numQuestions;
 - (void) start;
 - (BOOL) iterate;
+- (void) printResult;
 
 @end

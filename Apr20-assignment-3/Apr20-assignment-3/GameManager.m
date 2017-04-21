@@ -12,9 +12,14 @@
 @implementation GameManager
 
 + (instancetype) newGameFor: (int) numQuestions {
-    GameManager *instance = [GameManager new];
-    instance.numQuestions = numQuestions;
+    GameManager *instance = [[GameManager alloc] initWithCount:numQuestions];
     return instance;
+}
+
+- (instancetype) initWithCount: (int) numQuestions {
+    _numQuestions = numQuestions;
+    _questions = [NSMutableArray array];
+    return self;
 }
 
 - (void) start {
@@ -28,6 +33,7 @@
 
 - (BOOL) iterate {
     AdditionQuestion *question = [AdditionQuestion newQuestion];
+    [_questions addObject:question];
     
     printf("%s ?\n", [[question getQuestion] UTF8String]);
     
@@ -44,6 +50,23 @@
     }
 
     return true;
+}
+
+- (void) printResult {
+    int numRight = 0;
+    int numWrong = 0;
+    for (int i = 0; i < [_questions count]; i++) {
+        AdditionQuestion *question = _questions[i];
+        if ([question isCorrect]) {
+            numRight++;
+        }
+        else {
+            numWrong++;
+        }
+    }
+    
+    int rate = numRight * 100 / [_questions count];
+    printf("Score: %d right, %d wrong ---- %d %%\n", numRight, numWrong, rate);
 }
 
 NSString *getLine() {
