@@ -8,6 +8,7 @@
 
 #import "GameManager.h"
 #import "AdditionQuestion.h"
+#import "InputHandler.h"
 
 @implementation GameManager
 
@@ -37,7 +38,7 @@
     
     printf("%s ?\n", [[question getQuestion] UTF8String]);
     
-    NSString *line = getLine();
+    NSString *line = [InputHandler getLine];
     if (line == NULL) {
         return false;
     }
@@ -70,18 +71,6 @@
 
 - (float) calcCorrectRate {
     return ((float) _numRight) / [_questions count];
-}
-
-NSString *getLine() {
-    NSString *result = NULL;
-    
-    const int lineMax = 1024;
-    char line[lineMax];
-    const char *userInput = fgets(line, lineMax, stdin);
-    if (userInput != NULL) {
-        result = [NSString stringWithCString:userInput encoding:NSUTF8StringEncoding];
-    }
-    return result;
 }
 
 @end
