@@ -7,22 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Question.h"
 
-@interface AdditionQuestion : NSObject
+@interface AdditionQuestion : Question
 
-@property int num1;
-@property int num2;
-@property int userAnswer;
-@property NSDate *startTime;
-@property NSDate *endTime;
-
-+ (instancetype) newQuestion;
 - (NSString *) getQuestion;
 - (void) generateRandomQuestion;
 - (BOOL) isCorrect;
-- (NSTimeInterval) answerTime;
-
-- (BOOL) answer: (int) answer;
-- (BOOL) answerInString: (NSString *) answerString;
 
 @end

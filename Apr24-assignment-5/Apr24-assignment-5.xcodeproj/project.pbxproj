@@ -11,6 +11,7 @@
 		E47E16991EAEA62C00D54F6B /* GameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E47E16941EAEA62C00D54F6B /* GameManager.m */; };
 		E47E169A1EAEA62C00D54F6B /* AdditionQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = E47E16961EAEA62C00D54F6B /* AdditionQuestion.m */; };
 		E47E169B1EAEA62C00D54F6B /* InputHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = E47E16981EAEA62C00D54F6B /* InputHandler.m */; };
+		E49E84031EAEC2DC0093950F /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = E49E84021EAEC2DC0093950F /* Question.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -34,6 +35,8 @@
 		E47E16961EAEA62C00D54F6B /* AdditionQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdditionQuestion.m; sourceTree = "<group>"; };
 		E47E16971EAEA62C00D54F6B /* InputHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputHandler.h; sourceTree = "<group>"; };
 		E47E16981EAEA62C00D54F6B /* InputHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputHandler.m; sourceTree = "<group>"; };
+		E49E84011EAEC2DC0093950F /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Question.h; sourceTree = "<group>"; };
+		E49E84021EAEC2DC0093950F /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Question.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +76,8 @@
 				E47E16961EAEA62C00D54F6B /* AdditionQuestion.m */,
 				E47E16971EAEA62C00D54F6B /* InputHandler.h */,
 				E47E16981EAEA62C00D54F6B /* InputHandler.m */,
+				E49E84011EAEC2DC0093950F /* Question.h */,
+				E49E84021EAEC2DC0093950F /* Question.m */,
 			);
 			path = "Apr24-assignment-5";
 			sourceTree = "<group>";
@@ -136,6 +141,7 @@
 			files = (
 				E47E168D1EAEA60F00D54F6B /* main.m in Sources */,
 				E47E169A1EAEA62C00D54F6B /* AdditionQuestion.m in Sources */,
+				E49E84031EAEC2DC0093950F /* Question.m in Sources */,
 				E47E16991EAEA62C00D54F6B /* GameManager.m in Sources */,
 				E47E169B1EAEA62C00D54F6B /* InputHandler.m in Sources */,
 			);
@@ -266,6 +272,7 @@
 				E47E16921EAEA60F00D54F6B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

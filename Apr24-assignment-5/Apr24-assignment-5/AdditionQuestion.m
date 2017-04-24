@@ -10,54 +10,19 @@
 
 @implementation AdditionQuestion
 
-+ (instancetype) newQuestion {
-    AdditionQuestion *instance = [self new];
-    [instance generateRandomQuestion];
-    return instance;
-}
-
-- (instancetype) init {
-    self = [super init];
-    _startTime = [NSDate date];
-    return self;
-}
-
-- (void) userAnswer: (int) answer {
-    _userAnswer = answer;
-    _endTime = [NSDate date];
-}
-
 - (NSString *) getQuestion {
-    return [NSString stringWithFormat:@"%d + %d", _num1, _num2];
+    return [NSString stringWithFormat:@"%d + %d", self.num1, self.num2];
 }
 
 - (void) generateRandomQuestion {
     // numbers should be between 1 and 99
-    _num1 = arc4random_uniform(98) + 1;
-    _num2 = arc4random_uniform(98) + 1;
+    self.num1 = arc4random_uniform(98) + 1;
+    self.num2 = arc4random_uniform(98) + 1;
 }
 
 - (BOOL) isCorrect {
-    int correctAnswer = _num1 + _num2;
-    return _userAnswer == correctAnswer;
-}
-
-- (NSTimeInterval) answerTime {
-    return [_endTime timeIntervalSinceDate: _startTime];
-}
-
-- (BOOL) answer: (int) userAnswer {
-    [self userAnswer:userAnswer];
-    return [self isCorrect];
-}
-
-- (BOOL) answerInString: (NSString *) answerString {
-    int answer = numberize(answerString);
-    return [self answer:answer];
-}
-
-int numberize(NSString *original) {
-    return [original intValue];
+    int correctAnswer = self.num1 + self.num2;
+    return self.userAnswer == correctAnswer;
 }
 
 @end
