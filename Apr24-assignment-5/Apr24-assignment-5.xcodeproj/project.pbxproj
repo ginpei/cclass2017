@@ -69,13 +69,13 @@
 		E47E168B1EAEA60F00D54F6B /* Apr24-assignment-5 */ = {
 			isa = PBXGroup;
 			children = (
-				E47E168C1EAEA60F00D54F6B /* main.m */,
-				E47E16931EAEA62C00D54F6B /* GameManager.h */,
-				E47E16941EAEA62C00D54F6B /* GameManager.m */,
 				E47E16951EAEA62C00D54F6B /* AdditionQuestion.h */,
 				E47E16961EAEA62C00D54F6B /* AdditionQuestion.m */,
+				E47E16931EAEA62C00D54F6B /* GameManager.h */,
+				E47E16941EAEA62C00D54F6B /* GameManager.m */,
 				E47E16971EAEA62C00D54F6B /* InputHandler.h */,
 				E47E16981EAEA62C00D54F6B /* InputHandler.m */,
+				E47E168C1EAEA60F00D54F6B /* main.m */,
 				E49E84011EAEC2DC0093950F /* Question.h */,
 				E49E84021EAEC2DC0093950F /* Question.m */,
 			);
