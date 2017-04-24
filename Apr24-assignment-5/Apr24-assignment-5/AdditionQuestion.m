@@ -16,6 +16,16 @@
     return instance;
 }
 
+- (instancetype) init {
+    _startTime = [NSDate date];
+    return self;
+}
+
+- (void) userAnswer: (int) answer {
+    _userAnswer = answer;
+    _endTime = [NSDate date];
+}
+
 - (NSString *) getQuestion {
     return [NSString stringWithFormat:@"%d + %d", _num1, _num2];
 }
@@ -26,17 +36,17 @@
     _num2 = arc4random_uniform(98) + 1;
 }
 
-- (void) setAnswer: (int) answer {
-    _userAnswer = answer;
-}
-
 - (BOOL) isCorrect {
     int correctAnswer = _num1 + _num2;
     return _userAnswer == correctAnswer;
 }
 
+- (NSTimeInterval) answerTime {
+    return [_endTime timeIntervalSinceDate: _startTime];
+}
+
 - (BOOL) answer: (int) userAnswer {
-    [self setAnswer:userAnswer];
+    [self userAnswer:userAnswer];
     return [self isCorrect];
 }
 

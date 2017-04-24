@@ -51,6 +51,8 @@
         _numWrong += 1;
         printf("Wrong.\n");
     }
+    [self printResult];
+    printf("total time: %gs, average time: %gs\n", [self totalAnswerTime], [self averageAnswerTime]);
 
     return true;
 }
@@ -70,7 +72,19 @@
 }
 
 - (float) calcCorrectRate {
-    return ((float) _numRight) / [_questions count];
+    return ((float) _numRight) / (_numRight + _numWrong);
+}
+
+- (NSTimeInterval) totalAnswerTime {
+    float total = 0;
+    for (AdditionQuestion *question in _questions) {
+        total += [question answerTime];
+    }
+    return total;
+}
+
+- (NSTimeInterval) averageAnswerTime {
+    return [self totalAnswerTime] / (_numRight + _numWrong);
 }
 
 @end

@@ -21,5 +21,7 @@
 - (void) printResult;
 - (void) printWrongQuestins;
 - (float) calcCorrectRate;
+- (NSTimeInterval) totalAnswerTime;
+- (NSTimeInterval) averageAnswerTime;
 
 @end

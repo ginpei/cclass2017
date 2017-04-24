@@ -13,12 +13,14 @@
 @property int num1;
 @property int num2;
 @property int userAnswer;
+@property NSDate *startTime;
+@property NSDate *endTime;
 
 + (instancetype) newQuestion;
 - (NSString *) getQuestion;
 - (void) generateRandomQuestion;
-- (void) setAnswer: (int) answer;
 - (BOOL) isCorrect;
+- (NSTimeInterval) answerTime;
 
 - (BOOL) answer: (int) answer;
 - (BOOL) answerInString: (NSString *) answerString;
