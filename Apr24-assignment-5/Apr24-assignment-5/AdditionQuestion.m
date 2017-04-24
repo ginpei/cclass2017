@@ -17,6 +17,7 @@
 }
 
 - (instancetype) init {
+    self = [super init];
     _startTime = [NSDate date];
     return self;
 }
