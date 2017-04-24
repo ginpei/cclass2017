@@ -8,6 +8,7 @@
 
 #import "GameManager.h"
 #import "AdditionQuestion.h"
+#import "SubtractionQuestion.h"
 #import "InputHandler.h"
 
 @implementation GameManager
@@ -33,7 +34,7 @@
 }
 
 - (BOOL) iterate {
-    AdditionQuestion *question = [AdditionQuestion newQuestion];
+    Question *question = [self createRandomQuestion];
     [_questions addObject:question];
     
     printf("%s ?\n", [[question getQuestion] UTF8String]);
@@ -55,6 +56,21 @@
     printf("total time: %gs, average time: %gs\n", [self totalAnswerTime], [self averageAnswerTime]);
 
     return true;
+}
+
+- (Question *) createRandomQuestion {
+    Question *question;
+    int rand = arc4random_uniform(2);
+    if (rand == 0) {
+        question = [AdditionQuestion newQuestion];
+    }
+    else if (rand == 1) {
+        question = [SubtractionQuestion newQuestion];
+    }
+    else {
+        @throw @"WTF";
+    }
+    return question;
 }
 
 - (void) printResult {

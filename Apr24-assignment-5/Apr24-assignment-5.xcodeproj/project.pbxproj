@@ -12,6 +12,7 @@
 		E47E169A1EAEA62C00D54F6B /* AdditionQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = E47E16961EAEA62C00D54F6B /* AdditionQuestion.m */; };
 		E47E169B1EAEA62C00D54F6B /* InputHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = E47E16981EAEA62C00D54F6B /* InputHandler.m */; };
 		E49E84031EAEC2DC0093950F /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = E49E84021EAEC2DC0093950F /* Question.m */; };
+		E49E84061EAEC6690093950F /* SubtractionQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = E49E84051EAEC6690093950F /* SubtractionQuestion.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -37,6 +38,8 @@
 		E47E16981EAEA62C00D54F6B /* InputHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputHandler.m; sourceTree = "<group>"; };
 		E49E84011EAEC2DC0093950F /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Question.h; sourceTree = "<group>"; };
 		E49E84021EAEC2DC0093950F /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Question.m; sourceTree = "<group>"; };
+		E49E84041EAEC6690093950F /* SubtractionQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubtractionQuestion.h; sourceTree = "<group>"; };
+		E49E84051EAEC6690093950F /* SubtractionQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubtractionQuestion.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +81,8 @@
 				E47E168C1EAEA60F00D54F6B /* main.m */,
 				E49E84011EAEC2DC0093950F /* Question.h */,
 				E49E84021EAEC2DC0093950F /* Question.m */,
+				E49E84041EAEC6690093950F /* SubtractionQuestion.h */,
+				E49E84051EAEC6690093950F /* SubtractionQuestion.m */,
 			);
 			path = "Apr24-assignment-5";
 			sourceTree = "<group>";
@@ -143,6 +148,7 @@
 				E47E169A1EAEA62C00D54F6B /* AdditionQuestion.m in Sources */,
 				E49E84031EAEC2DC0093950F /* Question.m in Sources */,
 				E47E16991EAEA62C00D54F6B /* GameManager.m in Sources */,
+				E49E84061EAEC6690093950F /* SubtractionQuestion.m in Sources */,
 				E47E169B1EAEA62C00D54F6B /* InputHandler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
