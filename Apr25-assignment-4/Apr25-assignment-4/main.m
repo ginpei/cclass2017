@@ -40,7 +40,7 @@ int main(int argc, const char * argv[]) {
             printf("\tquit - Exit Application");
             NSString *line = [inputCollector inputForPrompt:@""];
             
-            if ([line isEqualToString:@"quit"]) {
+            if (line == NULL || [line isEqualToString:@"quit"]) {
                 break;
             }
             else if ([line isEqualToString:@"new"]) {
