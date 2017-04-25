@@ -92,7 +92,15 @@
 }
 
 - (float) calcCorrectRate {
-    return ((float) _numRight) / (_numRight + _numWrong);
+    int total = (_numRight + _numWrong);
+    float rate;
+    if (total > 0) {
+        rate = ((float) _numRight) / total;
+    }
+    else {
+        rate = 0;
+    }
+    return rate;
 }
 
 - (NSTimeInterval) totalAnswerTime {
