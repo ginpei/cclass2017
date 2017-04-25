@@ -53,7 +53,7 @@
         printf("Wrong.\n");
     }
     [self printResult];
-    printf("total time: %gs, average time: %gs\n", [self totalAnswerTime], [self averageAnswerTime]);
+    printf("total time: %.1fs, average time: %.1fs\n", [self totalAnswerTime], [self averageAnswerTime]);
 
     return true;
 }
