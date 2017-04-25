@@ -53,7 +53,7 @@
         printf("Wrong.\n");
     }
     [self printResult];
-    printf("total time: %.1fs, average time: %.1fs\n", [self totalAnswerTime], [self averageAnswerTime]);
+    [self printTime];
 
     return true;
 }
@@ -76,6 +76,10 @@
 - (void) printResult {
     int rate = [self calcCorrectRate] * 100;
     printf("Score: %d right, %d wrong ---- %d %%\n", _numRight, _numWrong, rate);
+}
+
+- (void) printTime {
+    printf("total time: %.1fs, average time: %.1fs\n", [self totalAnswerTime], [self averageAnswerTime]);
 }
 
 - (void) printWrongQuestins {
