@@ -10,6 +10,7 @@
 #import "InputCollector.h"
 #import "Contact.h"
 #import "ContactList.h"
+#import "PhoneNumber.h"
 
 ContactList *contacts;
 InputCollector *inputCollector;
@@ -41,6 +42,9 @@ Contact *createNewContact() {
 void printContactDetail(Contact *contact) {
     printf("Name: %s\n", [contact.name UTF8String]);
     printf("Email: %s\n", [contact.email UTF8String]);
+    for (PhoneNumber *p in contact.phones) {
+        printf("Phone (%s): %s\n", [p.label UTF8String], [p.number UTF8String]);
+    }
 }
 
 int main(int argc, const char * argv[]) {
@@ -52,6 +56,8 @@ int main(int argc, const char * argv[]) {
         Contact *c1 = [Contact new];
         c1.name = @"Alice";
         c1.email = @"alice@example.com";
+        [c1 addPhone:@"Mobile" withNumber:@"1-778-000-000"];
+        [c1 addPhone:@"Home" withNumber:@"1-999-000-000"];
         [contacts addContact:c1];
         Contact *c2 = [Contact new];
         c2.name = @"Bob";
