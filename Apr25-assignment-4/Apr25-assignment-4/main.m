@@ -14,6 +14,7 @@
 
 ContactList *contacts;
 InputCollector *inputCollector;
+NSMutableArray *history;
 
 Contact *createNewContact() {
     Contact *newContact = [Contact new];
@@ -51,6 +52,7 @@ int main(int argc, const char * argv[]) {
     @autoreleasepool {
         contacts = [ContactList new];
         inputCollector = [InputCollector new];
+        history = [NSMutableArray array];
         
         // dummy data
         Contact *c1 = [Contact new];
@@ -75,6 +77,7 @@ int main(int argc, const char * argv[]) {
             printf("\tlist - List all contacts\n");
             printf("\tshow - Show specified contacts\n");
             printf("\tfind - Find contacts\n");
+            printf("\thistory - Show input history\n");
             printf("\tquit - Exit Application");
             NSString *line = [inputCollector inputForPrompt:@""];
             
@@ -97,6 +100,12 @@ int main(int argc, const char * argv[]) {
                     printf("Not found\n");
                 }
             }
+            else if ([line isEqualToString:@"history"]) {
+                const int max = 3;
+                for (int i = 0; i < history.count && i < max; i++) {
+                    printf("\t- %s\n", [history[history.count -1 -i] UTF8String]);
+                }
+            }
             else if ([line isEqualToString:@"find"]) {
                 NSString *line = [inputCollector inputForPrompt:@"Input keyword"];
                 NSMutableArray *result = [contacts search:line];
@@ -109,6 +118,11 @@ int main(int argc, const char * argv[]) {
             }
             else {
                 printf("?\n");
+                line = NULL;  // avoid to add to history
+            }
+            
+            if (line != NULL) {
+                [history addObject:line];
             }
         }
         
