@@ -40,7 +40,7 @@
     printf("%s ?\n", [[question getQuestion] UTF8String]);
     
     NSString *line = [InputHandler getLine];
-    if (line == NULL) {
+    if (line == NULL || [line isEqualToString:@"quit"]) {
         return false;
     }
     

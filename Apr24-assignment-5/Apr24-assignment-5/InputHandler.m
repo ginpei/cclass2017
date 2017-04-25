@@ -23,7 +23,7 @@
     char line[_lineMax];
     const char *userInput = fgets(line, _lineMax, stdin);
     if (userInput != NULL) {
-        result = [NSString stringWithCString:userInput encoding:NSUTF8StringEncoding];
+        result = [[NSString stringWithCString:userInput encoding:NSUTF8StringEncoding] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     }
     
     return result;
