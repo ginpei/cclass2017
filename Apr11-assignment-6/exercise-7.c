@@ -6,29 +6,36 @@
 int main() {
 	const int lineMax = 1024;
 	char line[lineMax];
-	int bufferLength = 8;
-	int bufferPosition = 0;
-	char *buffer = malloc(bufferLength);
+	int maxLines = 32;
+	int numLines = 0;
+	char **lines = malloc(sizeof(char *) * maxLines);
 
-	printf("Input something.\n");
+	printf("Input something and input EOF (C-d).\n");
 	while (getline2(line, lineMax) != EOF) {
-		int lineLength = strlen(line) + 1;  // remember \n
-		while (bufferPosition + lineLength > bufferLength) {
-			bufferLength *= 2;
-			buffer = realloc(buffer, bufferLength + 1);  // remember \0
-			printf("required %d, reallocated %d\n", bufferPosition + lineLength, bufferLength);
+		// keep enough memory
+		if (numLines + 1 > maxLines) {
+			maxLines *= 2;
+			lines = realloc(lines, sizeof(char *) * maxLines);
 		}
 
-		strcpy(buffer + bufferPosition, line);
-		*(buffer + bufferPosition + lineLength) = '\n';
-		bufferPosition += lineLength + 1;  // remember \n
-		printf("position %d\n", bufferPosition);
+		// store the line
+		int lineLength = strlen(line);
+		lines[numLines] = malloc(lineLength + 1);  // remember \0
+		strcpy(lines[numLines], line);
+		*(lines[numLines] + lineLength) = '\0';
+		numLines++;
 	}
 
-	printf("position %d, allocated %d\n", bufferPosition, bufferLength);
-	printf("%s\n", buffer);
+	printf("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - \n");
 
-	free(buffer);
+	// output reversely, freeing memory
+	for (int i = 0; i < numLines; i++) {
+		char *line = lines[numLines - i - 1];
+		printf("%s\n", line);
+		free(line);
+	}
+
+	free(lines);
 
 	return 0;
 }
