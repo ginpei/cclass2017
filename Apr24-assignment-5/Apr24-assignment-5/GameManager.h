@@ -19,6 +19,7 @@
 - (void) start;
 - (BOOL) iterate;
 - (void) printResult;
+- (void) printTime;
 - (void) printWrongQuestins;
 - (float) calcCorrectRate;
 - (NSTimeInterval) totalAnswerTime;
