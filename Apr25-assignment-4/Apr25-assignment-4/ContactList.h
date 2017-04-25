@@ -15,5 +15,7 @@
 
 - (void) addContact: (Contact *) newContact;
 - (void) printAll;
+- (Contact *) find: (int) id;
+- (Contact *) findByIdString: (NSString *) idString;
 
 @end

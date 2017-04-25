@@ -26,4 +26,16 @@
     }
 }
 
+- (Contact *) find: (int) index{
+    if (index >= _contacts.count) {
+        return NULL;
+    }
+    
+    return _contacts[index];
+}
+
+- (Contact *) findByIdString: (NSString *) idString{
+    return [self find:[idString intValue]];
+}
+
 @end

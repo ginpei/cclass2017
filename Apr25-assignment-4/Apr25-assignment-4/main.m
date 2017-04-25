@@ -21,6 +21,11 @@ void createNewContact() {
     [contacts addContact:newContact];
 }
 
+void printContactDetail(Contact *contact) {
+    printf("Name: %s\n", [contact.name UTF8String]);
+    printf("Email: %s\n", [contact.email UTF8String]);
+}
+
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         contacts = [ContactList new];
@@ -31,6 +36,7 @@ int main(int argc, const char * argv[]) {
             printf("What would you like to do next?\n");
             printf("\tnew - Create a new contact\n");
             printf("\tlist - List all contacts\n");
+            printf("\tshow - Show specified contacts\n");
             printf("\tquit - Exit Application");
             NSString *line = [inputCollector inputForPrompt:@""];
             
@@ -44,6 +50,16 @@ int main(int argc, const char * argv[]) {
             }
             else if ([line isEqualToString:@"list"]) {
                 [contacts printAll];
+            }
+            else if ([line isEqualToString:@"show"]) {
+                NSString *line = [inputCollector inputForPrompt:@"Input the ID"];
+                Contact *result = [contacts findByIdString:line];
+                if (result != NULL) {
+                    printContactDetail(result);
+                }
+                else {
+                    printf("Not found\n");
+                }
             }
             else {
                 printf("?\n");
