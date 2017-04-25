@@ -11,12 +11,6 @@
 #import "Contact.h"
 #import "ContactList.h"
 
-NSString *menuMessage = @"\n\
-What would you like to do next?\n\
-\tnew - Create a new contact\n\
-\tlist - List all contacts\n\
-\tquit - Exit Application";
-
 ContactList *contacts;
 InputCollector *inputCollector;
 
@@ -33,7 +27,13 @@ int main(int argc, const char * argv[]) {
         inputCollector = [InputCollector new];
         
         while (YES) {
-            NSString *line = [inputCollector inputForPrompt:menuMessage];
+            printf("\n");
+            printf("What would you like to do next?\n");
+            printf("\tnew - Create a new contact\n");
+            printf("\tlist - List all contacts\n");
+            printf("\tquit - Exit Application");
+            NSString *line = [inputCollector inputForPrompt:@""];
+            
             if ([line isEqualToString:@"quit"]) {
                 break;
             }
