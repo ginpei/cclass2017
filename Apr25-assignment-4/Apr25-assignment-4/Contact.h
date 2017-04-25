@@ -12,5 +12,8 @@
 
 @property NSString *name;
 @property NSString *email;
+@property NSMutableArray *phones;
+
+- (void) addPhone: (NSString *) label withNumber: (NSString *) number;
 
 @end

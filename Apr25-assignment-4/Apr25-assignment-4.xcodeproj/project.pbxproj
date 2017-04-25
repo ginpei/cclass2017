@@ -12,6 +12,7 @@
 		E44DB97C1EAFF7FD00F5A3A5 /* InputCollector.m in Sources */ = {isa = PBXBuildFile; fileRef = E44DB97B1EAFF7FD00F5A3A5 /* InputCollector.m */; };
 		E44DB97F1EAFFAE400F5A3A5 /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = E44DB97E1EAFFAE400F5A3A5 /* Contact.m */; };
 		E44DB9821EAFFBBF00F5A3A5 /* ContactList.m in Sources */ = {isa = PBXBuildFile; fileRef = E44DB9811EAFFBBF00F5A3A5 /* ContactList.m */; };
+		E44DB9851EB00C3B00F5A3A5 /* PhoneNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = E44DB9841EB00C3B00F5A3A5 /* PhoneNumber.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -37,6 +38,8 @@
 		E44DB97E1EAFFAE400F5A3A5 /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contact.m; sourceTree = "<group>"; };
 		E44DB9801EAFFBBF00F5A3A5 /* ContactList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactList.h; sourceTree = "<group>"; };
 		E44DB9811EAFFBBF00F5A3A5 /* ContactList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactList.m; sourceTree = "<group>"; };
+		E44DB9831EB00C3B00F5A3A5 /* PhoneNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneNumber.h; sourceTree = "<group>"; };
+		E44DB9841EB00C3B00F5A3A5 /* PhoneNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneNumber.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,13 +73,15 @@
 			isa = PBXGroup;
 			children = (
 				E44DB97D1EAFFAE400F5A3A5 /* Contact.h */,
+				E44DB97E1EAFFAE400F5A3A5 /* Contact.m */,
 				E44DB9801EAFFBBF00F5A3A5 /* ContactList.h */,
 				E44DB9811EAFFBBF00F5A3A5 /* ContactList.m */,
-				E44DB97E1EAFFAE400F5A3A5 /* Contact.m */,
 				E44DB97A1EAFF7FD00F5A3A5 /* InputCollector.h */,
 				E44DB97B1EAFF7FD00F5A3A5 /* InputCollector.m */,
 				E44DB96B1EAFF3FA00F5A3A5 /* main.m */,
 				E44DB9751EAFF69000F5A3A5 /* misc */,
+				E44DB9831EB00C3B00F5A3A5 /* PhoneNumber.h */,
+				E44DB9841EB00C3B00F5A3A5 /* PhoneNumber.m */,
 			);
 			path = "Apr25-assignment-4";
 			sourceTree = "<group>";
@@ -148,6 +153,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E44DB97F1EAFFAE400F5A3A5 /* Contact.m in Sources */,
+				E44DB9851EB00C3B00F5A3A5 /* PhoneNumber.m in Sources */,
 				E44DB9821EAFFBBF00F5A3A5 /* ContactList.m in Sources */,
 				E44DB97C1EAFF7FD00F5A3A5 /* InputCollector.m in Sources */,
 				E44DB96C1EAFF3FA00F5A3A5 /* main.m in Sources */,

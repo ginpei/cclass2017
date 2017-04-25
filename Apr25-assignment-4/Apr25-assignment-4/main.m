@@ -16,12 +16,24 @@ InputCollector *inputCollector;
 
 Contact *createNewContact() {
     Contact *newContact = [Contact new];
+    
     newContact.email = [inputCollector inputForPrompt:@"Enter your email"];
     if ([contacts hasEmail:newContact.email]) {
         printf("This email has been used.\n");
         return NULL;
     }
+    
     newContact.name = [inputCollector inputForPrompt:@"Enter your username"];
+    
+    while (YES) {
+        NSString *label = [inputCollector inputForPrompt:@"Enter phone label (empty to finish)"];
+        if (label.length < 1) {
+            break;
+        }
+        NSString *number = [inputCollector inputForPrompt:@"Enter phone number"];
+        [newContact addPhone:label withNumber:number];
+    }
+    
     [contacts addContact:newContact];
     return newContact;
 }
