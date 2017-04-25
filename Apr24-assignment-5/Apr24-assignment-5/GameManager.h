@@ -7,10 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "QuestionFactory.h"
 
 @interface GameManager : NSObject
 
 @property int numQuestions;
+@property QuestionFactory *questionFactory;
 @property NSMutableArray *questions;
 @property int numRight;
 @property int numWrong;

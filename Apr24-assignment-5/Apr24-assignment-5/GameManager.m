@@ -7,10 +7,7 @@
 //
 
 #import "GameManager.h"
-#import "AdditionQuestion.h"
-#import "SubtractionQuestion.h"
-#import "MultiplicationQuestion.h"
-#import "DivisionQuestion.h"
+#import "Question.h"
 #import "InputHandler.h"
 
 @implementation GameManager
@@ -22,6 +19,7 @@
 
 - (instancetype) initWithCount: (int) numQuestions {
     _numQuestions = numQuestions;
+    _questionFactory = [QuestionFactory new];
     _questions = [NSMutableArray array];
     return self;
 }
@@ -36,7 +34,7 @@
 }
 
 - (BOOL) iterate {
-    Question *question = [self createRandomQuestion];
+    Question *question = [_questionFactory generateRandomQuestion];
     [_questions addObject:question];
     
     printf("%s ?\n", [[question getQuestion] UTF8String]);
@@ -60,27 +58,6 @@
     return true;
 }
 
-- (Question *) createRandomQuestion {
-    Question *question;
-    int rand = arc4random_uniform(4);
-    if (rand == 0) {
-        question = [AdditionQuestion newQuestion];
-    }
-    else if (rand == 1) {
-        question = [SubtractionQuestion newQuestion];
-    }
-    else if (rand == 2) {
-        question = [MultiplicationQuestion newQuestion];
-    }
-    else if (rand == 3) {
-        question = [DivisionQuestion newQuestion];
-    }
-    else {
-        @throw @"WTF";
-    }
-    return question;
-}
-
 - (void) printResult {
     int rate = [self calcCorrectRate] * 100;
     printf("Score: %d right, %d wrong ---- %d %%\n", _numRight, _numWrong, rate);
@@ -92,7 +69,7 @@
 
 - (void) printWrongQuestins {
     printf("Here are questions you answered wrong:\n");
-    for (AdditionQuestion *question in _questions) {
+    for (Question *question in _questions) {
         if (![question isCorrect]) {
             printf("- %s\n", [[question getQuestion] UTF8String]);
         }
@@ -113,7 +90,7 @@
 
 - (NSTimeInterval) totalAnswerTime {
     float total = 0;
-    for (AdditionQuestion *question in _questions) {
+    for (Question *question in _questions) {
         total += [question answerTime];
     }
     return total;
