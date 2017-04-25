@@ -7,17 +7,34 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "InputHandler.h"
+#import "InputCollector.h"
+
+NSString *menuMessage = @"\n\
+What would you like to do next?\n\
+\tnew - Create a new contact\n\
+\tlist - List all contacts\n\
+\tquit - Exit Application";
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        printf("What would you like to do next?\n");
-        printf("\tnew - Create a new contact\n");
-        printf("\tlist - List all contacts\n");
-        printf("\tquit - Exit Application\n");
-        printf("> ");
-        NSString *line = [InputHandler getLine];
-        NSLog(@">[%@]", line);
+        while (YES) {
+            InputCollector *inputCollector = [InputCollector new];
+            NSString *line = [inputCollector inputForPrompt:menuMessage];
+            if ([line isEqualToString:@"quit"]) {
+                break;
+            }
+            else if ([line isEqualToString:@"new"]) {
+                printf("-new-\n");
+            }
+            else if ([line isEqualToString:@"list"]) {
+                printf("-list-\n");
+            }
+            else {
+                printf("?\n");
+            }
+        }
+        
+        printf("Bye.\n");
     }
     return 0;
 }
