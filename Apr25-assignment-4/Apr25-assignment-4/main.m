@@ -30,9 +30,9 @@ void createNewContact() {
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         contacts = [ContactList new];
+        inputCollector = [InputCollector new];
         
         while (YES) {
-            inputCollector = [InputCollector new];
             NSString *line = [inputCollector inputForPrompt:menuMessage];
             if ([line isEqualToString:@"quit"]) {
                 break;
