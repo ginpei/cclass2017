@@ -37,6 +37,7 @@ int main(int argc, const char * argv[]) {
             printf("\tnew - Create a new contact\n");
             printf("\tlist - List all contacts\n");
             printf("\tshow - Show specified contacts\n");
+            printf("\tfind - Find contacts\n");
             printf("\tquit - Exit Application");
             NSString *line = [inputCollector inputForPrompt:@""];
             
@@ -45,8 +46,6 @@ int main(int argc, const char * argv[]) {
             }
             else if ([line isEqualToString:@"new"]) {
                 createNewContact();
-                printf("%lu contacs\n", (unsigned long)[contacts.contacts count]);
-                
             }
             else if ([line isEqualToString:@"list"]) {
                 [contacts printAll];
