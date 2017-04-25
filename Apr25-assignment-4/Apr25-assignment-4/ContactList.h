@@ -17,5 +17,7 @@
 - (void) printAll;
 - (Contact *) find: (int) id;
 - (Contact *) findByIdString: (NSString *) idString;
+- (NSMutableArray *) search: (NSString *) keyword;
+- (BOOL) hasEmail: (NSString *) email;
 
 @end

@@ -38,4 +38,25 @@
     return [self find:[idString intValue]];
 }
 
+- (NSMutableArray *) search: (NSString *) keyword {
+    NSMutableArray *result = [NSMutableArray array];
+    for (int i = 0; i < _contacts.count; i++) {
+        Contact *c = _contacts[i];
+        if ([c.name containsString:keyword] || [c.email containsString:keyword]) {
+            [result addObject:c];
+        }
+    }
+    return result;
+}
+
+- (BOOL) hasEmail: (NSString *) email {
+    for (int i = 0; i < _contacts.count; i++) {
+        Contact *c = _contacts[i];
+        if ([c.email isEqualToString:email]) {
+            return true;
+        }
+    }
+    return false;
+}
+
 @end

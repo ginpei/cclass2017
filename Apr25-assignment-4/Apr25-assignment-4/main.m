@@ -14,11 +14,16 @@
 ContactList *contacts;
 InputCollector *inputCollector;
 
-void createNewContact() {
+Contact *createNewContact() {
     Contact *newContact = [Contact new];
-    newContact.name = [inputCollector inputForPrompt:@"Enter your username"];
     newContact.email = [inputCollector inputForPrompt:@"Enter your email"];
+    if ([contacts hasEmail:newContact.email]) {
+        printf("This email has been used.\n");
+        return NULL;
+    }
+    newContact.name = [inputCollector inputForPrompt:@"Enter your username"];
     [contacts addContact:newContact];
+    return newContact;
 }
 
 void printContactDetail(Contact *contact) {
@@ -30,6 +35,20 @@ int main(int argc, const char * argv[]) {
     @autoreleasepool {
         contacts = [ContactList new];
         inputCollector = [InputCollector new];
+        
+        // dummy data
+        Contact *c1 = [Contact new];
+        c1.name = @"Alice";
+        c1.email = @"alice@example.com";
+        [contacts addContact:c1];
+        Contact *c2 = [Contact new];
+        c2.name = @"Bob";
+        c2.email = @"bob@example.com";
+        [contacts addContact:c2];
+        Contact *c3 = [Contact new];
+        c3.name = @"Charlie";
+        c3.email = @"charchar@example.com";
+        [contacts addContact:c3];
         
         while (YES) {
             printf("\n");
@@ -58,6 +77,16 @@ int main(int argc, const char * argv[]) {
                 }
                 else {
                     printf("Not found\n");
+                }
+            }
+            else if ([line isEqualToString:@"find"]) {
+                NSString *line = [inputCollector inputForPrompt:@"Input keyword"];
+                NSMutableArray *result = [contacts search:line];
+                printf("%lu contact(s) found:\n", (unsigned long)result.count);
+                
+                for (int i = 0; i < result.count; i++) {
+                    Contact *c = result[i];
+                    printf("%d: %s <%s>\n", i, [c.name UTF8String], [c.email UTF8String]);
                 }
             }
             else {
