@@ -38,7 +38,12 @@ const int numDice = 5;
         [self printHelp];
     }
     else if ([command isEqualToString:@""] || [command isEqualToString:@"roll"]) {
-        [self rollDice];
+        if (self.hasNewHeldDice) {
+            [self rollDice];
+        }
+        else {
+            printf("You have to choose at least one.\n");
+        }
     }
     else {
         [self toggleHeld:command];
@@ -91,6 +96,15 @@ const int numDice = 5;
     printf("\tYou can input multiple indexes deliminating by comma(,).\n");
     printf("\t- roll … Roll all of not-held dice.\n");
     printf("\t- quit … Quit the game.\n");
+}
+
+- (BOOL) hasNewHeldDice {
+    for (Dice *die in _dice) {
+        if (die.held) {
+            return true;
+        }
+    }
+    return false;
 }
 
 - (void) rollDice {
