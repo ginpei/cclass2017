@@ -36,6 +36,9 @@ const int numDice = 5;
     else if ([command isEqualToString:@"help"]) {
         [self printHelp];
     }
+    else if ([command isEqualToString:@"reset"]) {
+        [self resetHolding];
+    }
     else if ([command isEqualToString:@""] || [command isEqualToString:@"roll"]) {
         if (self.hasNewHeldDice) {
             [self updateDice];
@@ -93,6 +96,12 @@ const int numDice = 5;
     printf("\tYou can input multiple indexes deliminating by comma(,).\n");
     printf("\t- roll … Roll all of not-held dice.\n");
     printf("\t- quit … Quit the game.\n");
+}
+
+- (void) resetHolding {
+    for (Dice *die in _dice) {
+        [die hold:NO];
+    }
 }
 
 - (BOOL) hasNewHeldDice {
