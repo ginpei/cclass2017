@@ -124,6 +124,9 @@ const int numDice = 5;
 
 - (void) rollDice {
     printf("Rolling...\n");
+    for (Dice *die in _dice) {
+        [die roll];
+    }
 }
 
 - (void) toggleHeld: (NSString *) command {
