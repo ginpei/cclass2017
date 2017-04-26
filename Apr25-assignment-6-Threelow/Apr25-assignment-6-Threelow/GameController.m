@@ -30,12 +30,53 @@ const int numDice = 6;
     }
     printf("\n");
     
-    printf("Do you want do something?\n");
-    NSString *line = [InputHandler getLine];
-    if (line == NULL || [line isEqualToString:@"quit"]) {
+    NSString *command = [InputHandler ask:@"Input indexes or command. (\"help\" for help)\n"];
+    if (command == NULL || [command isEqualToString:@"quit"]) {
         _finished = true;
         return;
     }
+    else if ([command isEqualToString:@"help"]) {
+        [self printHelp];
+    }
+    else {
+        NSMutableArray *strIndexes = [self breakIndexes:command];
+        if (strIndexes.count > 0) {
+            for (NSString *strIndex in strIndexes) {
+                int index = strIndex.intValue;
+                printf("%d, ", index);
+            }
+        }
+        else {
+            printf("?\n");
+        }
+    }
+    
+    printf("\n");
+}
+
+- (void) printHelp {
+    printf("\tYou can input multiple indexes deliminating by comma(,).\n");
+    printf("\t- roll … Roll all of not-held dice.\n");
+    printf("\t- quit … Quit the game.\n");
+}
+
+- (NSMutableArray *) breakIndexes: (NSString *) line {
+    NSMutableArray *indexes = [NSMutableArray array];
+    
+    // split
+    NSArray *strIndexes = [line componentsSeparatedByString:@","];
+    
+    // pick up only availables
+    // TODO avoid duplications
+    for (int i = 0; i < strIndexes.count; i++) {
+        NSString *strIndex = strIndexes[i];
+        int index = strIndex.intValue;
+        if (1 <= index && index <= 6) {
+            [indexes addObject:strIndex];
+        }
+    }
+    
+    return indexes;
 }
 
 @end

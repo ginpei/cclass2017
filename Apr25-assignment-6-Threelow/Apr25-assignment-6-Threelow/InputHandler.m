@@ -17,6 +17,12 @@
     return result;
 }
 
++ (NSString *) ask: (NSString *) message {
+    printf("%s\n", message.UTF8String);
+    printf("> ");
+    return [self getLine];
+}
+
 - (NSString *) getLine {
     NSString *result = NULL;
     

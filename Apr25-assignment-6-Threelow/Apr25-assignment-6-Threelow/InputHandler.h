@@ -13,6 +13,7 @@
 @property int lineMax;
 
 + (NSString *) getLine;
++ (NSString *) ask: (NSString *) message;
 - (NSString *) getLine;
 
 @end
