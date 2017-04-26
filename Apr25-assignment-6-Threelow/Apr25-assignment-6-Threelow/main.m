@@ -15,7 +15,6 @@ int main(int argc, const char * argv[]) {
         while (!game.finished) {
             [game printHeldDice];
             [game printDice];
-            [game printScore];
             NSString *command = [game receiveCommand];
             [game runCommand:command];
         }

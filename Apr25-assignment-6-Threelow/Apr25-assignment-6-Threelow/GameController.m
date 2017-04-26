@@ -39,6 +39,9 @@ const int numDice = 5;
     else if ([command isEqualToString:@"reset"]) {
         [self resetHolding];
     }
+    else if ([command isEqualToString:@"score"]) {
+        [self printScore];
+    }
     else if ([command isEqualToString:@""] || [command isEqualToString:@"roll"]) {
         if (self.hasNewHeldDice) {
             [self updateDice];
