@@ -25,6 +25,7 @@ const int numDice = 6;
 
 - (void) iterate {
     [self printDice];
+    [self printScore];
     
     NSString *command = [InputHandler ask:@"Input indexes or command. (\"help\" for help)\n"];
     if (command == NULL || [command isEqualToString:@"quit"]) {
@@ -67,6 +68,14 @@ const int numDice = 6;
         printf(" #%d ", i);
     }
     printf("\n");
+}
+
+- (void) printScore {
+    int score = 0;
+    for (Dice *die in _dice) {
+        score += die.number;
+    }
+    printf("Score: %d\n", score);
 }
 
 - (void) printHelp {
