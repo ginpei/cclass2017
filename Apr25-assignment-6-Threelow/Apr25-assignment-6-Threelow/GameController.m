@@ -86,11 +86,15 @@ const int numDice = 5;
 }
 
 - (void) printScore {
+    printf("Score: %d\n", self.score);
+}
+
+- (int) score {
     int score = 0;
-    for (Dice *die in _dice) {
+    for (Dice *die in _heldDice) {
         score += die.number;
     }
-    printf("Score: %d\n", score);
+    return score;
 }
 
 - (void) printHelp {
