@@ -10,7 +10,7 @@
 #import "Dice.h"
 #import "InputHandler.h"
 
-const int numDice = 6;
+const int numDice = 5;
 
 @implementation GameController
 
