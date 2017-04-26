@@ -15,5 +15,6 @@
 @property NSMutableArray *heldDice;
 
 - (void) iterate;
+- (void) printScore;
 
 @end

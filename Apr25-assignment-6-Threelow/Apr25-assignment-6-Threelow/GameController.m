@@ -39,7 +39,13 @@ const int numDice = 5;
     }
     else if ([command isEqualToString:@""] || [command isEqualToString:@"roll"]) {
         if (self.hasNewHeldDice) {
-            [self rollDice];
+            [self updateDice];
+            if (self.hasLeftDice) {
+                [self rollDice];
+            }
+            else {
+                self.finished = true;
+            }
         }
         else {
             printf("You have to choose at least one.\n");
@@ -107,9 +113,12 @@ const int numDice = 5;
     return false;
 }
 
+- (BOOL) hasLeftDice {
+    return _dice.count > 0;
+}
+
 - (void) rollDice {
     printf("Rolling...\n");
-    [self updateDice];
 }
 
 - (void) updateDice {

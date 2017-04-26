@@ -15,6 +15,7 @@ int main(int argc, const char * argv[]) {
         while (!game.finished) {
             [game iterate];
         }
+        [game printScore];
     }
     return 0;
 }
