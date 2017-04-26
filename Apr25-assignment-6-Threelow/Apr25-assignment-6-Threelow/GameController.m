@@ -26,7 +26,12 @@ const int numDice = 6;
 - (void) iterate {
     for (int i = 0; i < numDice; i++) {
         Dice *die = _dice[i];
-        printf("#%d: %s (%d), ", i, [die.surface UTF8String], die.number);
+        if (die.held) {
+            printf("#%d:[%s](%d), ", i, [die.surface UTF8String], die.number);
+        }
+        else {
+            printf("#%d: %s (%d), ", i, [die.surface UTF8String], die.number);
+        }
     }
     printf("\n");
     
@@ -43,7 +48,8 @@ const int numDice = 6;
         if (strIndexes.count > 0) {
             for (NSString *strIndex in strIndexes) {
                 int index = strIndex.intValue;
-                printf("%d, ", index);
+                Dice *die = _dice[index];
+                [die toggleHeld];
             }
         }
         else {

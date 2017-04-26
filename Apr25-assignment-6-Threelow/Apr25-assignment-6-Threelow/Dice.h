@@ -11,10 +11,13 @@
 @interface Dice : NSObject
 
 @property int number;
+@property BOOL held;
 
 + (NSString *) surfaceOf: (int) number;
 
 - (NSString *) surface;
 - (void) roll;
+- (void) hold: (BOOL) held;
+- (void) toggleHeld;
 
 @end

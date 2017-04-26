@@ -47,4 +47,12 @@
     _number = arc4random_uniform(6) + 1;  // 1-6
 }
 
+- (void) hold: (BOOL) held {
+    self.held = held;
+}
+
+- (void) toggleHeld{
+    [self hold: !_held];
+}
+
 @end
