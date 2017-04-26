@@ -16,6 +16,7 @@ const int numDice = 5;
 
 - (instancetype) init {
     _finished = false;
+    _completed = false;
     _dice = [NSMutableArray array];
     for (int i = 0; i < numDice; i++) {
         [_dice addObject:[Dice new]];
@@ -50,6 +51,7 @@ const int numDice = 5;
             }
             else {
                 self.finished = true;
+                self.completed = true;
             }
         }
         else {
@@ -64,7 +66,12 @@ const int numDice = 5;
 }
 
 - (void) printScore {
-    printf("Score: %d\n", self.score);
+    if (_completed) {
+        printf("Score: %d\n", self.score);
+    }
+    else {
+        printf("Current Score: %d\n", self.score);
+    }
 }
 
 - (void) printHeldDice {

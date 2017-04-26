@@ -11,6 +11,7 @@
 @interface GameController : NSObject
 
 @property BOOL finished;
+@property BOOL completed;
 @property NSMutableArray *dice;
 @property NSMutableArray *heldDice;
 
