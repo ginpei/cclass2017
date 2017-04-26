@@ -158,7 +158,12 @@ const int numDice = 5;
 - (int) score {
     int score = 0;
     for (Dice *die in _heldDice) {
-        score += die.number;
+        if (die.number == 3) {
+            score += 0;  // it's a special number!
+        }
+        else {
+            score += die.number;
+        }
     }
     return score;
 }
