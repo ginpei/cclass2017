@@ -12,6 +12,7 @@
 
 @property BOOL finished;
 @property NSMutableArray *dice;
+@property NSMutableArray *heldDice;
 
 - (void) iterate;
 

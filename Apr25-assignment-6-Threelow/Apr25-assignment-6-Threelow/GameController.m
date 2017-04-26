@@ -20,10 +20,12 @@ const int numDice = 5;
     for (int i = 0; i < numDice; i++) {
         [_dice addObject:[Dice new]];
     }
+    _heldDice = [NSMutableArray array];
     return self;
 }
 
 - (void) iterate {
+    [self printHeldDice];
     [self printDice];
     [self printScore];
     
@@ -34,6 +36,9 @@ const int numDice = 5;
     }
     else if ([command isEqualToString:@"help"]) {
         [self printHelp];
+    }
+    else if ([command isEqualToString:@""] || [command isEqualToString:@"roll"]) {
+        [self rollDice];
     }
     else {
         NSMutableArray *strIndexes = [self breakIndexes:command];
@@ -52,8 +57,18 @@ const int numDice = 5;
     printf("\n");
 }
 
+- (void) printHeldDice {
+    if (_heldDice.count > 0) {
+        printf("Held Dice: ");
+        for (Dice *die in _heldDice) {
+            printf("%s ", [die.surface UTF8String]);
+        }
+        printf("\n");
+    }
+}
+
 - (void) printDice {
-    for (int i = 0; i < numDice; i++) {
+    for (int i = 0; i < _dice.count; i++) {
         Dice *die = _dice[i];
         if (die.held) {
             printf(" [%s] ", [die.surface UTF8String]);
@@ -64,7 +79,7 @@ const int numDice = 5;
     }
     printf("\n");
     
-    for (int i = 0; i < numDice; i++) {
+    for (int i = 0; i < _dice.count; i++) {
         printf(" #%d ", i);
     }
     printf("\n");
@@ -84,6 +99,24 @@ const int numDice = 5;
     printf("\t- quit … Quit the game.\n");
 }
 
+- (void) rollDice {
+    printf("Rolling...\n");
+    [self updateDice];
+}
+
+- (void) updateDice {
+    NSMutableArray *newDice = [NSMutableArray array];
+    for (Dice *die in _dice) {
+        if (die.held) {
+            [_heldDice addObject:die];
+        }
+        else {
+            [newDice addObject:die];
+        }
+    }
+    _dice = newDice;
+}
+
 - (NSMutableArray *) breakIndexes: (NSString *) line {
     NSMutableArray *indexes = [NSMutableArray array];
     
@@ -95,7 +128,7 @@ const int numDice = 5;
     for (int i = 0; i < strIndexes.count; i++) {
         NSString *strIndex = strIndexes[i];
         int index = strIndex.intValue;
-        if (0 <= index && index < numDice) {
+        if (0 <= index && index < _dice.count) {
             [indexes addObject:strIndex];
         }
     }
