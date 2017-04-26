@@ -24,16 +24,7 @@ const int numDice = 6;
 }
 
 - (void) iterate {
-    for (int i = 0; i < numDice; i++) {
-        Dice *die = _dice[i];
-        if (die.held) {
-            printf("#%d:[%s](%d), ", i, [die.surface UTF8String], die.number);
-        }
-        else {
-            printf("#%d: %s (%d), ", i, [die.surface UTF8String], die.number);
-        }
-    }
-    printf("\n");
+    [self printDice];
     
     NSString *command = [InputHandler ask:@"Input indexes or command. (\"help\" for help)\n"];
     if (command == NULL || [command isEqualToString:@"quit"]) {
@@ -43,7 +34,7 @@ const int numDice = 6;
     else if ([command isEqualToString:@"help"]) {
         [self printHelp];
     }
-    else {
+    else {  
         NSMutableArray *strIndexes = [self breakIndexes:command];
         if (strIndexes.count > 0) {
             for (NSString *strIndex in strIndexes) {
@@ -57,6 +48,24 @@ const int numDice = 6;
         }
     }
     
+    printf("\n");
+}
+
+- (void) printDice {
+    for (int i = 0; i < numDice; i++) {
+        Dice *die = _dice[i];
+        if (die.held) {
+            printf(" [%s] ", [die.surface UTF8String]);
+        }
+        else {
+            printf("  %s ", [die.surface UTF8String]);
+        }
+    }
+    printf("\n");
+    
+    for (int i = 0; i < numDice; i++) {
+        printf(" #%d ", i);
+    }
     printf("\n");
 }
 
@@ -77,7 +86,7 @@ const int numDice = 6;
     for (int i = 0; i < strIndexes.count; i++) {
         NSString *strIndex = strIndexes[i];
         int index = strIndex.intValue;
-        if (1 <= index && index <= 6) {
+        if (0 <= index && index < numDice) {
             [indexes addObject:strIndex];
         }
     }
