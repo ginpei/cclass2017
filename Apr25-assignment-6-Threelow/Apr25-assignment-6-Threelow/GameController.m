@@ -41,17 +41,7 @@ const int numDice = 5;
         [self rollDice];
     }
     else {
-        NSMutableArray *strIndexes = [self breakIndexes:command];
-        if (strIndexes.count > 0) {
-            for (NSString *strIndex in strIndexes) {
-                int index = strIndex.intValue;
-                Dice *die = _dice[index];
-                [die toggleHeld];
-            }
-        }
-        else {
-            printf("?\n");
-        }
+        [self toggleHeld:command];
     }
     
     printf("\n");
@@ -119,6 +109,16 @@ const int numDice = 5;
         }
     }
     _dice = newDice;
+}
+
+- (void) toggleHeld: (NSString *) command {
+    NSMutableArray *strIndexes = [self breakIndexes:command];
+    for (NSString *strIndex in strIndexes) {
+        int index = strIndex.intValue;
+        Dice *die = _dice[index];
+        [die toggleHeld];
+        
+    }
 }
 
 - (NSMutableArray *) breakIndexes: (NSString *) line {
