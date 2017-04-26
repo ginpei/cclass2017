@@ -34,7 +34,7 @@ const int numDice = 6;
     else if ([command isEqualToString:@"help"]) {
         [self printHelp];
     }
-    else {  
+    else {
         NSMutableArray *strIndexes = [self breakIndexes:command];
         if (strIndexes.count > 0) {
             for (NSString *strIndex in strIndexes) {
