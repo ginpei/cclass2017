@@ -13,7 +13,11 @@ int main(int argc, const char * argv[]) {
     @autoreleasepool {
         GameController *game = [GameController new];
         while (!game.finished) {
-            [game iterate];
+            [game printHeldDice];
+            [game printDice];
+            [game printScore];
+            NSString *command = [game receiveCommand];
+            [game runCommand:command];
         }
         [game printScore];
     }

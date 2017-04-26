@@ -14,7 +14,10 @@
 @property NSMutableArray *dice;
 @property NSMutableArray *heldDice;
 
-- (void) iterate;
+- (void) printHeldDice;
+- (void) printDice;
+- (NSString *) receiveCommand;
+- (void) runCommand: (NSString *) command;
 - (void) printScore;
 
 @end

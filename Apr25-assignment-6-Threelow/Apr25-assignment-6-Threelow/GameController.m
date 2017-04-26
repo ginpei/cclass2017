@@ -24,12 +24,11 @@ const int numDice = 5;
     return self;
 }
 
-- (void) iterate {
-    [self printHeldDice];
-    [self printDice];
-    [self printScore];
-    
-    NSString *command = [InputHandler ask:@"Input indexes or command. (\"help\" for help)\n"];
+- (NSString *) receiveCommand {
+    return [InputHandler ask:@"Input indexes or command. (\"help\" for help)\n"];
+}
+
+- (void) runCommand: (NSString *) command {
     if (command == NULL || [command isEqualToString:@"quit"]) {
         _finished = true;
         return;
