@@ -58,6 +58,10 @@ const int numDice = 5;
     printf("\n");
 }
 
+- (void) printScore {
+    printf("Score: %d\n", self.score);
+}
+
 - (void) printHeldDice {
     if (_heldDice.count > 0) {
         printf("Held Dice: ");
@@ -86,18 +90,6 @@ const int numDice = 5;
     printf("\n");
 }
 
-- (void) printScore {
-    printf("Score: %d\n", self.score);
-}
-
-- (int) score {
-    int score = 0;
-    for (Dice *die in _heldDice) {
-        score += die.number;
-    }
-    return score;
-}
-
 - (void) printHelp {
     printf("\tYou can input multiple indexes deliminating by comma(,).\n");
     printf("\t- roll … Roll all of not-held dice.\n");
@@ -113,14 +105,6 @@ const int numDice = 5;
     return false;
 }
 
-- (BOOL) hasLeftDice {
-    return _dice.count > 0;
-}
-
-- (void) rollDice {
-    printf("Rolling...\n");
-}
-
 - (void) updateDice {
     NSMutableArray *newDice = [NSMutableArray array];
     for (Dice *die in _dice) {
@@ -132,6 +116,14 @@ const int numDice = 5;
         }
     }
     _dice = newDice;
+}
+
+- (BOOL) hasLeftDice {
+    return _dice.count > 0;
+}
+
+- (void) rollDice {
+    printf("Rolling...\n");
 }
 
 - (void) toggleHeld: (NSString *) command {
@@ -161,6 +153,14 @@ const int numDice = 5;
     }
     
     return indexes;
+}
+
+- (int) score {
+    int score = 0;
+    for (Dice *die in _heldDice) {
+        score += die.number;
+    }
+    return score;
 }
 
 @end
