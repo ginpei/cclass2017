@@ -13,6 +13,10 @@
 
 @interface Doctor : Person
 
-- (void) acceptPaticent: (Patient *) patient;
+@property NSMutableSet *patients;
+@property NSMutableDictionary *prescriptionLog;
+
+- (NSMutableSet *) acceptPaticent: (Patient *) patient;
+- (BOOL) requestMedication: (Patient *) patient;
 
 @end

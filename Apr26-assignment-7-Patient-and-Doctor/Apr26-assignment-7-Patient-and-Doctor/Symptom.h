@@ -1,5 +1,5 @@
 //
-//  Person.h
+//  Symptom.h
 //  Apr26-assignment-7-Patient-and-Doctor
 //
 //  Created by Ginpei on 2017-04-26.
@@ -7,13 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "HealthCard.h"
 
-@interface Person : NSObject
+@interface Symptom : NSObject
 
-@property NSString *name;
+@property NSString *title;
+@property NSMutableSet *medicines;
 
-+ (instancetype) newWithName: (NSString *) name;
-- (void) say: (NSString *) message;
++ (instancetype) newWithTitle: (NSString *) title;
 
 @end

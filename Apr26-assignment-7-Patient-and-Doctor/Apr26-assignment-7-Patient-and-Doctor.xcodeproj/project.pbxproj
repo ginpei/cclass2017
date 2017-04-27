@@ -11,6 +11,8 @@
 		E46B7EB41EB13D0700E0A3D3 /* Doctor.m in Sources */ = {isa = PBXBuildFile; fileRef = E46B7EB31EB13D0700E0A3D3 /* Doctor.m */; };
 		E46B7EB71EB13D1400E0A3D3 /* Patient.m in Sources */ = {isa = PBXBuildFile; fileRef = E46B7EB61EB13D1400E0A3D3 /* Patient.m */; };
 		E46B7EBA1EB150EE00E0A3D3 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = E46B7EB91EB150EE00E0A3D3 /* Person.m */; };
+		E470F0CB1EB15E4C0067BAC4 /* HealthCard.m in Sources */ = {isa = PBXBuildFile; fileRef = E470F0CA1EB15E4C0067BAC4 /* HealthCard.m */; };
+		E470F0CE1EB162EB0067BAC4 /* Symptom.m in Sources */ = {isa = PBXBuildFile; fileRef = E470F0CD1EB162EB0067BAC4 /* Symptom.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -34,6 +36,10 @@
 		E46B7EB61EB13D1400E0A3D3 /* Patient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Patient.m; sourceTree = "<group>"; };
 		E46B7EB81EB150EE00E0A3D3 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		E46B7EB91EB150EE00E0A3D3 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
+		E470F0C91EB15E4C0067BAC4 /* HealthCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthCard.h; sourceTree = "<group>"; };
+		E470F0CA1EB15E4C0067BAC4 /* HealthCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthCard.m; sourceTree = "<group>"; };
+		E470F0CC1EB162EB0067BAC4 /* Symptom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Symptom.h; sourceTree = "<group>"; };
+		E470F0CD1EB162EB0067BAC4 /* Symptom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Symptom.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,11 +74,15 @@
 			children = (
 				E46B7EB21EB13D0700E0A3D3 /* Doctor.h */,
 				E46B7EB31EB13D0700E0A3D3 /* Doctor.m */,
+				E470F0C91EB15E4C0067BAC4 /* HealthCard.h */,
+				E470F0CA1EB15E4C0067BAC4 /* HealthCard.m */,
 				E46B7EAB1EB1385300E0A3D3 /* main.m */,
-				E46B7EB81EB150EE00E0A3D3 /* Person.h */,
-				E46B7EB91EB150EE00E0A3D3 /* Person.m */,
 				E46B7EB51EB13D1400E0A3D3 /* Patient.h */,
 				E46B7EB61EB13D1400E0A3D3 /* Patient.m */,
+				E46B7EB81EB150EE00E0A3D3 /* Person.h */,
+				E46B7EB91EB150EE00E0A3D3 /* Person.m */,
+				E470F0CC1EB162EB0067BAC4 /* Symptom.h */,
+				E470F0CD1EB162EB0067BAC4 /* Symptom.m */,
 			);
 			path = "Apr26-assignment-7-Patient-and-Doctor";
 			sourceTree = "<group>";
@@ -134,10 +144,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E470F0CB1EB15E4C0067BAC4 /* HealthCard.m in Sources */,
 				E46B7EB71EB13D1400E0A3D3 /* Patient.m in Sources */,
 				E46B7EB41EB13D0700E0A3D3 /* Doctor.m in Sources */,
 				E46B7EBA1EB150EE00E0A3D3 /* Person.m in Sources */,
 				E46B7EAC1EB1385300E0A3D3 /* main.m in Sources */,
+				E470F0CE1EB162EB0067BAC4 /* Symptom.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,6 +278,7 @@
 				E46B7EB11EB1385300E0A3D3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -13,6 +13,12 @@
 
 @interface Patient : Person
 
+@property HealthCard *healthCard;
+@property NSMutableArray *symptoms;
+
 - (void) visitDoctor: (Doctor *) doctor;
+- (BOOL) hasValidHealthCard;
+- (void) getValidHealthCard;
+- (void) requestMedication: (Doctor *) doctor as: (NSMutableSet *) prescription;
 
 @end

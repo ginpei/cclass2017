@@ -13,12 +13,34 @@
 
 - (instancetype) init {
     self = [super init];
+    self.symptoms = [NSMutableArray array];
     return self;
 }
 
 - (void) visitDoctor: (Doctor *) doctor {
     [self say:@"I'm going to see a docter..."];
-    [doctor acceptPaticent: self];
+    NSMutableSet *prescription = [doctor acceptPaticent:self];
+    if (prescription == NULL) {
+        [self say:@"Oh my."];
+    }
+    
+    [doctor requestMedication:prescription];
+}
+
+- (BOOL) hasValidHealthCard {
+    BOOL b = self.healthCard != NULL && self.healthCard.valid;
+    if (b) {
+        [self say:@"Here you go."];
+    }
+    else {
+        [self say:@"Uh oh."];
+    }
+    return b;
+}
+
+- (void) getValidHealthCard {
+    [self say:@"Yeah, I don't forget my health card."];
+    self.healthCard = [HealthCard newValid];
 }
 
 @end
