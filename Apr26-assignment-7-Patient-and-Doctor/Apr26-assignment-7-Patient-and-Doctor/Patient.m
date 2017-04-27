@@ -24,6 +24,7 @@
         [self say:@"Oh my."];
     }
     
+    [self say:@"Hi. I think I need medicines. Here is my prescription."];
     [doctor requestMedication:prescription];
 }
 

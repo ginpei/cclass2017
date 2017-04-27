@@ -19,6 +19,5 @@
 - (void) visitDoctor: (Doctor *) doctor;
 - (BOOL) hasValidHealthCard;
 - (void) getValidHealthCard;
-- (void) requestMedication: (Doctor *) doctor as: (NSMutableSet *) prescription;
 
 @end

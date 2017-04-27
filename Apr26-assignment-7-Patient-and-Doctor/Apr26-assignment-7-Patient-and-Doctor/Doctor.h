@@ -17,6 +17,6 @@
 @property NSMutableDictionary *prescriptionLog;
 
 - (NSMutableSet *) acceptPaticent: (Patient *) patient;
-- (BOOL) requestMedication: (Patient *) patient;
+- (BOOL) requestMedication: (NSMutableSet *) prescription;
 
 @end
