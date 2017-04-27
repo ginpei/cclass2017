@@ -60,7 +60,13 @@
 
 - (NSString *) description {
     NSString *size = [Pizza stringFromSize:self.size];
-    NSString *toppings = [self.toppings componentsJoinedByString:@", "];
+    NSString *toppings;
+    if (self.toppings.count > 0) {
+        toppings = [self.toppings componentsJoinedByString:@", "];
+    }
+    else {
+        toppings = @"no toppings";
+    }
     return [NSString stringWithFormat:@"%@ pizza with %@", size, toppings];
 }
 
