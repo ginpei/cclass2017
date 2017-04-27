@@ -33,9 +33,10 @@ int main(int argc, const char * argv[]) {
         [patient getValidHealthCard];
         [patient visitDoctor:doctor];
         
-        printf("- Next day... -\n");
+        printf("- Few days later... -\n");
         
-        // see again
+        // fever has gone but still conghing
+        [patient.symptoms removeObject:fever];
         [patient visitDoctor:doctor];
     }
     return 0;
