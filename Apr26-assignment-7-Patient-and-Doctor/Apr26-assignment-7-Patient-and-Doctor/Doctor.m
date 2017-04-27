@@ -60,7 +60,7 @@
 - (void) keepPrescription: (NSMutableSet *) prescription forPatient: (Patient *) patient {
     NSString *id = patient.id;
     NSMutableArray *log;
-    if (![self.prescriptionLog doesContain:patient]) {
+    if (![self.prescriptionLog doesContain:patient]) {  // TODO seemd wrong
         [self.prescriptionLog setObject:[NSMutableArray array] forKey:id];
     }
     log = [self.prescriptionLog valueForKey:id];
