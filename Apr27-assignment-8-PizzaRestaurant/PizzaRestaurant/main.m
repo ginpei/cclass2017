@@ -34,17 +34,20 @@ int main(int argc, const char * argv[])
             
             // Take the first word of the command as the size, and the rest as the toppings
             NSArray *commandWords = [inputString componentsSeparatedByString:@" "];
+            NSString *keyword = commandWords[0];
             
-            // And then send some message to the kitchen...
-            PizzaSize size = [Pizza sizeFromString:commandWords[0]];
-            NSArray *toppings = [commandWords subarrayWithRange:NSMakeRange(1, commandWords.count - 1)];
-            Pizza *pizza = [[Pizza alloc] initWithSize:size toppings:toppings];
+            Pizza *pizza;
+            if ([keyword isEqualToString:@"pepperoni"]) {
+                pizza = [Pizza largePepperoni];
+            }
+            else {
+                // And then send some message to the kitchen...
+                PizzaSize size = [Pizza sizeFromString:keyword];
+                NSArray *toppings = [commandWords subarrayWithRange:NSMakeRange(1, commandWords.count - 1)];
+                pizza = [[Pizza alloc] initWithSize:size toppings:toppings];
+            }
+            
             NSLog(@"Here is a %@.", pizza);
-            
-            Pizza *largePepperoni = [Pizza largePepperoni];
-            NSLog(@"Here is a %@.", largePepperoni);
-            Pizza *meatLoversWithSize = [Pizza meatLoversWithSize:large];
-            NSLog(@"Here is a %@.", meatLoversWithSize);
         }
 
     }
