@@ -44,4 +44,9 @@
     self.healthCard = [HealthCard newValid];
 }
 
+- (NSString *) id {
+    // create actual ID when something go wrong
+    return self.name;
+}
+
 @end

@@ -19,5 +19,6 @@
 - (void) visitDoctor: (Doctor *) doctor;
 - (BOOL) hasValidHealthCard;
 - (void) getValidHealthCard;
+- (NSString *) id;
 
 @end

@@ -58,11 +58,12 @@
 }
 
 - (void) keepPrescription: (NSMutableSet *) prescription forPatient: (Patient *) patient {
+    NSString *id = patient.id;
     NSMutableArray *log;
     if (![self.prescriptionLog doesContain:patient]) {
-        [self.prescriptionLog setObject:[NSMutableArray array] forKey:patient.name];
+        [self.prescriptionLog setObject:[NSMutableArray array] forKey:id];
     }
-    log = [self.prescriptionLog valueForKey:patient.name];
+    log = [self.prescriptionLog valueForKey:id];
     
     [log addObject:prescription];
     [self say:[NSString stringWithFormat:@"I gonna keep this prescription for the patient... There're %lu prescriptions so far.", (unsigned long)log.count]];
