@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Person.h"
+#import "Symptom.h"
 
 @class Doctor;
 
@@ -16,7 +17,9 @@
 @property HealthCard *healthCard;
 @property NSMutableArray *symptoms;
 
-- (void) visitDoctor: (Doctor *) doctor;
+- (void) addSympom: (Symptom *) symptom;
+- (void) removeSympom: (Symptom *) symptom;
+- (BOOL) visitDoctor: (Doctor *) doctor;
 - (BOOL) hasValidHealthCard;
 - (void) getValidHealthCard;
 - (NSString *) id;

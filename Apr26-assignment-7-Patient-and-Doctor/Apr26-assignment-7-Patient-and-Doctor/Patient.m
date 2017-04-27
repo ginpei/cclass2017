@@ -17,15 +17,26 @@
     return self;
 }
 
-- (void) visitDoctor: (Doctor *) doctor {
+- (void) addSympom: (Symptom *) symptom {
+    [self say:[NSString stringWithFormat:@"Hmmm I think I got %@...", symptom.title]];
+    [self.symptoms addObject:symptom];
+}
+
+- (void) removeSympom: (Symptom *) symptom {
+    [self say:[NSString stringWithFormat:@"Yeah I feel better than before. %@ might be gone.", symptom.title]];
+    [self.symptoms removeObject:symptom];
+}
+
+- (BOOL) visitDoctor: (Doctor *) doctor {
     [self say:@"I'm going to see a docter..."];
     NSMutableSet *prescription = [doctor acceptPaticent:self];
     if (prescription == NULL) {
-        [self say:@"Oh my."];
+        return false;
     }
     
     [self say:@"Hi. I think I need medicines. Here is my prescription."];
     [doctor requestMedication:prescription];
+    return true;
 }
 
 - (BOOL) hasValidHealthCard {

@@ -16,27 +16,34 @@ int main(int argc, const char * argv[]) {
         Doctor *doctor = [Doctor newWithName:@"Dr. Alice"];
         Patient *patient = [Patient newWithName:@"Bob"];
         
-        // make them sick
+        // sicka
         Symptom *cough = [Symptom newWithTitle:@"Cough"];
         [cough.medicines addObject:@"Benylin"];
-        [patient.symptoms addObject:cough];
-        
         Symptom *fever = [Symptom newWithTitle:@"Fever"];
         [fever.medicines addObject:@"Advil"];
         [fever.medicines addObject:@"Ice"];
-        [patient.symptoms addObject:fever];
+        
+        // make them sick
+        [patient addSympom:cough];
+        [patient addSympom:fever];
         
         // see doctor without health card
-        [patient visitDoctor:doctor];
+        if (![patient visitDoctor:doctor]) {
+            [patient say:@"Oh my."];
+        }
         
         // see doctor with health card
         [patient getValidHealthCard];
-        [patient visitDoctor:doctor];
+        if ([patient visitDoctor:doctor]) {
+            [patient say:@"OK. I need rest."];
+        }
         
         printf("- Few days later... -\n");
         
         // fever has gone but still conghing
-        [patient.symptoms removeObject:fever];
+        [patient removeSympom:fever];
+        
+        // see doctor again
         [patient visitDoctor:doctor];
     }
     return 0;
