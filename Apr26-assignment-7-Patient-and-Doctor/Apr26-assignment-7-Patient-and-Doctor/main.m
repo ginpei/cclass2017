@@ -32,6 +32,11 @@ int main(int argc, const char * argv[]) {
         // see doctor with health card
         [patient getValidHealthCard];
         [patient visitDoctor:doctor];
+        
+        printf("- Next day... -\n");
+        
+        // see again
+        [patient visitDoctor:doctor];
     }
     return 0;
 }

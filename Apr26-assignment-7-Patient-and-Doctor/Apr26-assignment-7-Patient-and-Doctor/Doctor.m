@@ -58,18 +58,18 @@
 }
 
 - (void) keepPrescription: (NSMutableSet *) prescription forPatient: (Patient *) patient {
-    NSMutableArray *log;
-    if (![self.prescriptionLog doesContain:patient]) {  // TODO seemd wrong
-        [self createNewPrescriptionLogForPatient:patient];
+    NSMutableArray *log = [self.prescriptionLog valueForKey:patient.id];
+    if (log == NULL) {
+        log = [self createNewPrescriptionLogForPatient:patient];
     }
-    log = [self.prescriptionLog valueForKey:patient.id];
     
     [log addObject:prescription];
     [self say:[NSString stringWithFormat:@"I gonna keep this prescription for the patient... There're %lu prescriptions so far.", (unsigned long)log.count]];
 }
 
-- (void) createNewPrescriptionLogForPatient: (Patient *) patient {
+- (NSMutableArray *) createNewPrescriptionLogForPatient: (Patient *) patient {
     [self.prescriptionLog setObject:[NSMutableArray array] forKey:patient.id];
+    return [self.prescriptionLog valueForKey:patient.id];
 }
 
 - (BOOL) requestMedication: (NSMutableSet *) prescription {
