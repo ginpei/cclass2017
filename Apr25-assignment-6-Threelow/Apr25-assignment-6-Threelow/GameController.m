@@ -111,6 +111,7 @@ const int numDice = 5;
     printf("\t- reset … Un-hold all dice.\n");
     printf("\t- score … Print current score.\n");
     printf("\t- quit … Quit the game.\n");
+    printf("\t- newgame … Start new game again.\n");
     printf("\t- help … Show this help.\n");
 }
 
