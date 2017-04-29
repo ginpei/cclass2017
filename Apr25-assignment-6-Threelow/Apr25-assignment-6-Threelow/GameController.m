@@ -43,6 +43,9 @@ const int numDice = 5;
     else if ([command isEqualToString:@"score"]) {
         [self printScore];
     }
+    else if ([command isEqualToString:@"newgame"]) {
+        [self newGame];
+    }
     else if ([command isEqualToString:@""] || [command isEqualToString:@"roll"]) {
         if (self.hasNewHeldDice) {
             [self updateDice];
@@ -190,6 +193,22 @@ const int numDice = 5;
         }
     }
     return score;
+}
+
+- (void) newGame {
+    while (YES) {
+        NSString *line = [InputHandler ask:@"Are you sure you want to kill everything and restart whole things? (y/n)"];
+        if ([line isEqualToString:@"n"]) {
+            // canceled
+            return;
+        }
+        else if ([line isEqualToString:@"y"]) {
+            // progress
+            break;
+        }
+    }
+    
+    [self init];
 }
 
 @end
