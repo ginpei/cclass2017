@@ -26,7 +26,7 @@ const int numDice = 5;
 }
 
 - (NSString *) receiveCommand {
-    return [InputHandler ask:@"Input indexes or command. (\"help\" for help)\n"];
+    return [InputHandler ask:@"Just hit return to roll, input indexes to hold, or input command. (\"help\" for help)\n"];
 }
 
 - (void) runCommand: (NSString *) command {
