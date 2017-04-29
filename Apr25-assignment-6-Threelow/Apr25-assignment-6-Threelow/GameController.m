@@ -17,6 +17,7 @@ const int numDice = 5;
 - (instancetype) init {
     _finished = false;
     _completed = false;
+    _tsuyoi = false;
     _dice = [NSMutableArray array];
     for (int i = 0; i < numDice; i++) {
         [_dice addObject:[Dice new]];
@@ -45,6 +46,9 @@ const int numDice = 5;
     }
     else if ([command isEqualToString:@"newgame"]) {
         [self newGame];
+    }
+    else if ([command isEqualToString:@"rolll"]) {
+        [self turnTsuyoiOn];
     }
     else if ([command isEqualToString:@""] || [command isEqualToString:@"roll"]) {
         if (self.hasNewHeldDice) {
@@ -150,7 +154,12 @@ const int numDice = 5;
 - (void) rollDice {
     printf("Rolling...\n");
     for (Dice *die in _dice) {
-        [die roll];
+        if (_tsuyoi) {
+            [die tsuyoiRoll];
+        }
+        else {
+            [die roll];
+        }
     }
 }
 
@@ -210,6 +219,12 @@ const int numDice = 5;
     }
     
     [self init];
+}
+
+- (void) turnTsuyoiOn {
+    printf("!\n");
+    _tsuyoi = true;
+    [self rollDice];
 }
 
 @end

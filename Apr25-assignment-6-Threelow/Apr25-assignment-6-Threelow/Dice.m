@@ -47,6 +47,10 @@
     _number = arc4random_uniform(6) + 1;  // 1-6
 }
 
+- (void) tsuyoiRoll {
+    _number = 3;
+}
+
 - (void) hold: (BOOL) held {
     self.held = held;
 }

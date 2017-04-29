@@ -17,6 +17,7 @@
 
 - (NSString *) surface;
 - (void) roll;
+- (void) tsuyoiRoll;
 - (void) hold: (BOOL) held;
 - (void) toggleHeld;
 

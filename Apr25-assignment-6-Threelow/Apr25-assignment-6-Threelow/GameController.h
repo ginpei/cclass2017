@@ -12,6 +12,7 @@
 
 @property BOOL finished;
 @property BOOL completed;
+@property BOOL tsuyoi;
 @property NSMutableArray *dice;
 @property NSMutableArray *heldDice;
 
