@@ -105,7 +105,10 @@ const int numDice = 5;
 - (void) printHelp {
     printf("\tYou can input multiple indexes deliminating by comma(,).\n");
     printf("\t- roll … Roll all of not-held dice.\n");
+    printf("\t- reset … Un-hold all dice.\n");
+    printf("\t- score … Print current score.\n");
     printf("\t- quit … Quit the game.\n");
+    printf("\t- help … Show this help.\n");
 }
 
 - (void) resetHolding {
