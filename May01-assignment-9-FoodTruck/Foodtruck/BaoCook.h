@@ -1,5 +1,5 @@
 //
-//  Cook.h
+//  BaoCook.h
 //  Foodtruck
 //
 //  Created by Ginpei on 2017-05-01.
@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "FoodTruck.h"
 
-@interface Cook : NSObject <FoodTruckDelegate>
+@interface BaoCook : NSObject <FoodTruckDelegate>
 
 @end
