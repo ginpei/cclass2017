@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8BF87F6E1CDB2B21001943DE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BF87F6D1CDB2B21001943DE /* main.m */; };
 		8BF87F761CDB2B34001943DE /* FoodTruck.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BF87F751CDB2B34001943DE /* FoodTruck.m */; };
+		E4C093581EB7EB060057BBC6 /* Cook.m in Sources */ = {isa = PBXBuildFile; fileRef = E4C093571EB7EB060057BBC6 /* Cook.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +29,8 @@
 		8BF87F6D1CDB2B21001943DE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8BF87F741CDB2B34001943DE /* FoodTruck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodTruck.h; sourceTree = "<group>"; };
 		8BF87F751CDB2B34001943DE /* FoodTruck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodTruck.m; sourceTree = "<group>"; };
+		E4C093561EB7EB060057BBC6 /* Cook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cook.h; sourceTree = "<group>"; };
+		E4C093571EB7EB060057BBC6 /* Cook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cook.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +64,8 @@
 			isa = PBXGroup;
 			children = (
 				8BF87F6D1CDB2B21001943DE /* main.m */,
+				E4C093561EB7EB060057BBC6 /* Cook.h */,
+				E4C093571EB7EB060057BBC6 /* Cook.m */,
 				8BF87F741CDB2B34001943DE /* FoodTruck.h */,
 				8BF87F751CDB2B34001943DE /* FoodTruck.m */,
 			);
@@ -125,6 +130,7 @@
 			files = (
 				8BF87F6E1CDB2B21001943DE /* main.m in Sources */,
 				8BF87F761CDB2B34001943DE /* FoodTruck.m in Sources */,
+				E4C093581EB7EB060057BBC6 /* Cook.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
