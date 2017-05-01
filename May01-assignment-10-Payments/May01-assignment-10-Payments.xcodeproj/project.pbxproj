@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E4C093691EB7F61B0057BBC6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E4C093681EB7F61B0057BBC6 /* main.m */; };
+		E4C093711EB7F6D60057BBC6 /* UiController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4C093701EB7F6D60057BBC6 /* UiController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,8 @@
 /* Begin PBXFileReference section */
 		E4C093651EB7F61B0057BBC6 /* May01-assignment-10-Payments */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "May01-assignment-10-Payments"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4C093681EB7F61B0057BBC6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E4C0936F1EB7F6D60057BBC6 /* UiController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UiController.h; sourceTree = "<group>"; };
+		E4C093701EB7F6D60057BBC6 /* UiController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UiController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				E4C093681EB7F61B0057BBC6 /* main.m */,
+				E4C0936F1EB7F6D60057BBC6 /* UiController.h */,
+				E4C093701EB7F6D60057BBC6 /* UiController.m */,
 			);
 			path = "May01-assignment-10-Payments";
 			sourceTree = "<group>";
@@ -120,6 +125,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4C093691EB7F61B0057BBC6 /* main.m in Sources */,
+				E4C093711EB7F6D60057BBC6 /* UiController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
