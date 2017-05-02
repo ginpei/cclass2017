@@ -11,7 +11,7 @@
 @implementation StripePaymentService
 
 -(void)processPaymentAmount: (NSInteger) amount {
-    printf("You are paying at Stripe.\n");
+    printf("You are paying $%ld at Stripe.\n", (long)amount);
 }
 
 @end

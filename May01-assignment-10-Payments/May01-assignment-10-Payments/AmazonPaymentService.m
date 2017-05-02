@@ -11,7 +11,7 @@
 @implementation AmazonPaymentService
 
 -(void)processPaymentAmount: (NSInteger) amount {
-    printf("You are paying at Amazon.\n");
+    printf("You are paying $%ld at Amazon.\n", (long)amount);
 }
 
 @end

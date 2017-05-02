@@ -11,7 +11,7 @@
 @implementation PaypalPaymentService
 
 -(void)processPaymentAmount: (NSInteger) amount {
-    printf("You are paying at Paypal.\n");
+    printf("You are paying $%ld at Paypal.\n", amount);
 }
 
 @end
