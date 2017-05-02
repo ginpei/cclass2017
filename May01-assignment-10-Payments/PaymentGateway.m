@@ -10,6 +10,7 @@
 #import "StripePaymentService.h"
 #import "PaypalPaymentService.h"
 #import "AmazonPaymentService.h"
+#import "ApplePaymentService.h"
 
 @implementation PaymentGateway
 
@@ -22,6 +23,9 @@
     }
     else if ([name isEqualToString:@"amazon"]) {
         _paymentService = [AmazonPaymentService new];
+    }
+    else if ([name isEqualToString:@"apple"]) {
+        _paymentService = [ApplePaymentService new];
     }
     else {
         _paymentService = NULL;

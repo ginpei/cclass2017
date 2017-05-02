@@ -13,6 +13,7 @@
 		E4C093781EB8004F0057BBC6 /* PaypalPaymentService.m in Sources */ = {isa = PBXBuildFile; fileRef = E4C093771EB8004E0057BBC6 /* PaypalPaymentService.m */; };
 		E4C0937B1EB800720057BBC6 /* AmazonPaymentService.m in Sources */ = {isa = PBXBuildFile; fileRef = E4C0937A1EB800720057BBC6 /* AmazonPaymentService.m */; };
 		E4C0937E1EB8037F0057BBC6 /* PaymentGateway.m in Sources */ = {isa = PBXBuildFile; fileRef = E4C0937D1EB8037F0057BBC6 /* PaymentGateway.m */; };
+		E4C093841EB92F760057BBC6 /* ApplePaymentService.m in Sources */ = {isa = PBXBuildFile; fileRef = E4C093831EB92F760057BBC6 /* ApplePaymentService.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -40,6 +41,8 @@
 		E4C0937A1EB800720057BBC6 /* AmazonPaymentService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmazonPaymentService.m; sourceTree = "<group>"; };
 		E4C0937C1EB8037F0057BBC6 /* PaymentGateway.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PaymentGateway.h; path = ../PaymentGateway.h; sourceTree = "<group>"; };
 		E4C0937D1EB8037F0057BBC6 /* PaymentGateway.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PaymentGateway.m; path = ../PaymentGateway.m; sourceTree = "<group>"; };
+		E4C093821EB92F760057BBC6 /* ApplePaymentService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplePaymentService.h; sourceTree = "<group>"; };
+		E4C093831EB92F760057BBC6 /* ApplePaymentService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplePaymentService.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +77,8 @@
 			children = (
 				E4C093791EB800720057BBC6 /* AmazonPaymentService.h */,
 				E4C0937A1EB800720057BBC6 /* AmazonPaymentService.m */,
+				E4C093821EB92F760057BBC6 /* ApplePaymentService.h */,
+				E4C093831EB92F760057BBC6 /* ApplePaymentService.m */,
 				E4C093681EB7F61B0057BBC6 /* main.m */,
 				E4C0937C1EB8037F0057BBC6 /* PaymentGateway.h */,
 				E4C0937D1EB8037F0057BBC6 /* PaymentGateway.m */,
@@ -147,6 +152,7 @@
 				E4C093691EB7F61B0057BBC6 /* main.m in Sources */,
 				E4C0937B1EB800720057BBC6 /* AmazonPaymentService.m in Sources */,
 				E4C093751EB800070057BBC6 /* StripePaymentService.m in Sources */,
+				E4C093841EB92F760057BBC6 /* ApplePaymentService.m in Sources */,
 				E4C0937E1EB8037F0057BBC6 /* PaymentGateway.m in Sources */,
 				E4C093711EB7F6D60057BBC6 /* UiController.m in Sources */,
 				E4C093781EB8004F0057BBC6 /* PaypalPaymentService.m in Sources */,
