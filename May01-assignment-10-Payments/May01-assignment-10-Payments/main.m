@@ -14,7 +14,7 @@ int main(int argc, const char * argv[]) {
     @autoreleasepool {
         UiController *controller = [UiController new];
         PaymentGateway *paymentGateway = [PaymentGateway new];
-        int price = arc4random_uniform(1000 + 1 - 100) + 1000;
+        int price = arc4random_uniform(1000 + 1 - 100) + 100;
         
         while (!controller.finished) {
             NSString *message = [NSString stringWithFormat:@"Thank you for shopping at Acme.com Your total today is $%d Please select your payment method: 1: Paypal, 2: Stripe, 3: Amazon, 4: ApplePay", price];
