@@ -13,6 +13,7 @@
 		E40B72231EB2A20C00D4A8A4 /* Pizza.m in Sources */ = {isa = PBXBuildFile; fileRef = E40B72221EB2A20C00D4A8A4 /* Pizza.m */; };
 		E4C093891EB934B60057BBC6 /* AntiAnchoviManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E4C093881EB934B60057BBC6 /* AntiAnchoviManager.m */; };
 		E4C0938C1EB936BD0057BBC6 /* CheeryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E4C0938B1EB936BD0057BBC6 /* CheeryManager.m */; };
+		E4C0938F1EB93C790057BBC6 /* DeleveryService.m in Sources */ = {isa = PBXBuildFile; fileRef = E4C0938E1EB93C790057BBC6 /* DeleveryService.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -41,6 +42,8 @@
 		E4C093881EB934B60057BBC6 /* AntiAnchoviManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AntiAnchoviManager.m; sourceTree = "<group>"; };
 		E4C0938A1EB936BD0057BBC6 /* CheeryManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheeryManager.h; sourceTree = "<group>"; };
 		E4C0938B1EB936BD0057BBC6 /* CheeryManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheeryManager.m; sourceTree = "<group>"; };
+		E4C0938D1EB93C790057BBC6 /* DeleveryService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeleveryService.h; sourceTree = "<group>"; };
+		E4C0938E1EB93C790057BBC6 /* DeleveryService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeleveryService.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +90,8 @@
 				E4C093881EB934B60057BBC6 /* AntiAnchoviManager.m */,
 				E4C0938A1EB936BD0057BBC6 /* CheeryManager.h */,
 				E4C0938B1EB936BD0057BBC6 /* CheeryManager.m */,
+				E4C0938D1EB93C790057BBC6 /* DeleveryService.h */,
+				E4C0938E1EB93C790057BBC6 /* DeleveryService.m */,
 				6001EC8E197B502F00F97011 /* Kitchen.h */,
 				6001EC8F197B502F00F97011 /* Kitchen.m */,
 				E4C093861EB9316E0057BBC6 /* KitchenDelegate.h */,
@@ -162,6 +167,7 @@
 				6001EC90197B502F00F97011 /* Kitchen.m in Sources */,
 				E4C093891EB934B60057BBC6 /* AntiAnchoviManager.m in Sources */,
 				6001EC84197B4EC300F97011 /* main.m in Sources */,
+				E4C0938F1EB93C790057BBC6 /* DeleveryService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

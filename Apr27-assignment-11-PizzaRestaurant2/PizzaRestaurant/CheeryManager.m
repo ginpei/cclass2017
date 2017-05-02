@@ -7,6 +7,7 @@
 //
 
 #import "CheeryManager.h"
+#import "DeleveryService.h"
 
 @implementation CheeryManager
 
@@ -23,6 +24,7 @@
 -(void)kitchenDidMakePizza:(Pizza *)pizza
 {
     NSLog(@"Hi-ho! Here is your %@", pizza);
+    NSLog(@"sending... [%@]", self.deleveryService);
 }
 
 @end

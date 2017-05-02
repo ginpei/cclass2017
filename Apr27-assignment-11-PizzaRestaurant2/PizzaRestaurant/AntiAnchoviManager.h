@@ -11,4 +11,6 @@
 
 @interface AntiAnchoviManager : NSObject <KitchenDelegate>
 
+@property (nonatomic, weak) DeleveryService *deleveryService;
+
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "AntiAnchoviManager.h"
+#import "DeleveryService.h"
 
 @implementation AntiAnchoviManager
 
@@ -18,6 +19,11 @@
 -(BOOL)kitchenShouldUpgradeOrder:(Kitchen *)kitchen
 {
     return NO;
+}
+
+-(void)kitchenDidMakePizza:(Pizza *)pizza
+{
+    NSLog(@"sending... [%@]", self.deleveryService);
 }
 
 @end

@@ -1,5 +1,5 @@
 //
-//  CheeryManager.h
+//  DeleveryService.h
 //  PizzaRestaurant
 //
 //  Created by Ginpei on 2017-05-02.
@@ -7,10 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "KitchenDelegate.h"
 
-@interface CheeryManager : NSObject <KitchenDelegate>
-
-@property (nonatomic, weak) DeleveryService *deleveryService;
+@interface DeleveryService : NSObject
 
 @end
