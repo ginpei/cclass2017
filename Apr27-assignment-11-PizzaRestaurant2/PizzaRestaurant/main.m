@@ -29,7 +29,9 @@ int main(int argc, const char * argv[])
             
             NSLog(@"> ");
             char str[100];
-            fgets (str, 100, stdin);
+            if (fgets (str, 100, stdin) == NULL) {
+                break;
+            }
             
             NSString *inputString = [[NSString alloc] initWithUTF8String:str];
             inputString = [inputString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
