@@ -10,6 +10,8 @@
 
 #import "Kitchen.h"
 #import "Pizza.h"
+#import "AntiAnchoviManager.h"
+#import "CheeryManager.h"
 
 int main(int argc, const char * argv[])
 {
@@ -19,6 +21,23 @@ int main(int argc, const char * argv[])
         NSLog(@"Please pick your pizza size and toppings:");
         
         Kitchen *restaurantKitchen = [Kitchen new];
+        AntiAnchoviManager *antiAnchoviManager = [AntiAnchoviManager new];
+        CheeryManager *cheeryManager = [CheeryManager new];
+        Pizza *pizza;
+        
+        restaurantKitchen.delegate = NULL;
+        pizza = [restaurantKitchen makePizzaWithSize:small toppings:@[@"cheese", @"tomato"]];
+        NSLog(@"%@", pizza);
+        restaurantKitchen.delegate = antiAnchoviManager;
+        pizza = [restaurantKitchen makePizzaWithSize:small toppings:@[@"cheese", @"tomato"]];
+        NSLog(@"%@", pizza);
+        pizza = [restaurantKitchen makePizzaWithSize:small toppings:@[@"cheese", @"anchovi"]];
+        NSLog(@"%@", pizza);
+        restaurantKitchen.delegate = cheeryManager;
+        pizza = [restaurantKitchen makePizzaWithSize:small toppings:@[@"cheese", @"anchovi"]];
+        NSLog(@"%@", pizza);
+        
+        return 0;
         
         while (TRUE) {
             // Loop forever

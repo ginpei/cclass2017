@@ -15,15 +15,26 @@
 {
     Pizza *pizza;
     
-    if (self.delegate != NULL && [self.delegate kitchen:self shouldMakePizzaOfSize:size andToppings:toppings]) {
-        if ([self.delegate respondsToSelector:@selector(kitchenShouldUpgradeOrder:)] && [self.delegate kitchenShouldUpgradeOrder:self]) {
-            size = large;
+    if (self.delegate != NULL) {
+        if ([self.delegate kitchen:self shouldMakePizzaOfSize:size andToppings:toppings]) {
+            if ([self.delegate kitchenShouldUpgradeOrder:self]) {
+                size = large;
+            }
+            
+            pizza = [Pizza pizzaWithSize:size toppings:toppings];
+            
+            if ([self.delegate respondsToSelector:@selector(kitchenDidMakePizza:)]) {
+                [self.delegate kitchenDidMakePizza:pizza];
+            }
         }
-        
-        pizza = [Pizza pizzaWithSize:size toppings:toppings];
+        // manager denied the order
+        else {
+            pizza = NULL;
+        }
     }
+    // there are no managers
     else {
-        pizza = NULL;
+        pizza = [Pizza pizzaWithSize:size toppings:toppings];
     }
     
     return pizza;
