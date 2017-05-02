@@ -23,7 +23,7 @@
 
 -(void)kitchenDidMakePizza:(Pizza *)pizza
 {
-    NSLog(@"sending... [%@]", self.deleveryService);
+    [self.deleveryService run];
 }
 
 @end

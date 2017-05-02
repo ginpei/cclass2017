@@ -13,6 +13,7 @@
 #import "AntiAnchoviManager.h"
 #import "CheeryManager.h"
 #import "DeleveryService.h"
+#import "DeliveryCar.h"
 
 int main(int argc, const char * argv[])
 {
@@ -23,8 +24,10 @@ int main(int argc, const char * argv[])
         
         Kitchen *restaurantKitchen = [Kitchen new];
         DeleveryService *deleveryService = [DeleveryService new];
+        DeliveryCar *deliveryCar = [DeliveryCar new];
         AntiAnchoviManager *antiAnchoviManager = [AntiAnchoviManager new];
         CheeryManager *cheeryManager = [CheeryManager new];
+        deleveryService.car = deliveryCar;
         antiAnchoviManager.deleveryService = deleveryService;
         cheeryManager.deleveryService = deleveryService;
         

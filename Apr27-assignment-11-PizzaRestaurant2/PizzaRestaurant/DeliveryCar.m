@@ -1,17 +1,17 @@
 //
-//  DeleveryService.m
+//  DeliveryCar.m
 //  PizzaRestaurant
 //
 //  Created by Ginpei on 2017-05-02.
 //  Copyright © 2017 Lighthouse Labs. All rights reserved.
 //
 
-#import "DeleveryService.h"
+#import "DeliveryCar.h"
 
-@implementation DeleveryService
+@implementation DeliveryCar
 
 -(void)run {
-    [self.car run];
+    NSLog(@"Drrrrrr");
 }
 
 @end

@@ -7,7 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "DeliveryCar.h"
 
 @interface DeleveryService : NSObject
+
+@property (weak) DeliveryCar *car;
+
+-(void)run;
 
 @end
