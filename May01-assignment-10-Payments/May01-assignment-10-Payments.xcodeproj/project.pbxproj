@@ -75,21 +75,29 @@
 		E4C093671EB7F61B0057BBC6 /* May01-assignment-10-Payments */ = {
 			isa = PBXGroup;
 			children = (
-				E4C093791EB800720057BBC6 /* AmazonPaymentService.h */,
-				E4C0937A1EB800720057BBC6 /* AmazonPaymentService.m */,
-				E4C093821EB92F760057BBC6 /* ApplePaymentService.h */,
-				E4C093831EB92F760057BBC6 /* ApplePaymentService.m */,
 				E4C093681EB7F61B0057BBC6 /* main.m */,
 				E4C0937C1EB8037F0057BBC6 /* PaymentGateway.h */,
 				E4C0937D1EB8037F0057BBC6 /* PaymentGateway.m */,
-				E4C093761EB8004E0057BBC6 /* PaypalPaymentService.h */,
-				E4C093771EB8004E0057BBC6 /* PaypalPaymentService.m */,
-				E4C093731EB800070057BBC6 /* StripePaymentService.h */,
-				E4C093741EB800070057BBC6 /* StripePaymentService.m */,
+				E4C093851EB9309B0057BBC6 /* paymentService */,
 				E4C0936F1EB7F6D60057BBC6 /* UiController.h */,
 				E4C093701EB7F6D60057BBC6 /* UiController.m */,
 			);
 			path = "May01-assignment-10-Payments";
+			sourceTree = "<group>";
+		};
+		E4C093851EB9309B0057BBC6 /* paymentService */ = {
+			isa = PBXGroup;
+			children = (
+				E4C093791EB800720057BBC6 /* AmazonPaymentService.h */,
+				E4C0937A1EB800720057BBC6 /* AmazonPaymentService.m */,
+				E4C093821EB92F760057BBC6 /* ApplePaymentService.h */,
+				E4C093831EB92F760057BBC6 /* ApplePaymentService.m */,
+				E4C093761EB8004E0057BBC6 /* PaypalPaymentService.h */,
+				E4C093771EB8004E0057BBC6 /* PaypalPaymentService.m */,
+				E4C093731EB800070057BBC6 /* StripePaymentService.h */,
+				E4C093741EB800070057BBC6 /* StripePaymentService.m */,
+			);
+			name = paymentService;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
