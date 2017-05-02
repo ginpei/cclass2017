@@ -8,14 +8,26 @@
 
 #import "AmazonPaymentService.h"
 
+@interface AmazonPaymentService() {
+@private BOOL available;
+}
+
+@end
+
 @implementation AmazonPaymentService
+
+-(instancetype)init {
+    self = [super init];
+    available = arc4random_uniform(2) == 1;
+    return self;
+}
 
 -(void)processPaymentAmount: (NSInteger) amount {
     printf("You are paying $%ld at Amazon.\n", (long)amount);
 }
 
 -(BOOL)canProcessPayment {
-    return YES;
+    return available;
 }
 
 @end

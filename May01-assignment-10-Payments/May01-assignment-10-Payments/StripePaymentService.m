@@ -8,14 +8,26 @@
 
 #import "StripePaymentService.h"
 
+@interface StripePaymentService() {
+@private BOOL available;
+}
+
+@end
+
 @implementation StripePaymentService
+
+-(instancetype)init {
+    self = [super init];
+    available = arc4random_uniform(2) == 1;
+    return self;
+}
 
 -(void)processPaymentAmount: (NSInteger) amount {
     printf("You are paying $%ld at Stripe.\n", (long)amount);
 }
 
 -(BOOL)canProcessPayment {
-    return NO;
+    return available;
 }
 
 @end
