@@ -7,9 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Pizza.h"
 
 @interface DeliveryCar : NSObject
 
--(void)run;
+-(void)deliverPizza:(Pizza *)pizza;
 
 @end

@@ -81,6 +81,11 @@ int main(int argc, const char * argv[])
             else {
                 NSLog(@"I'm sorry but there are no pizza for you!");
             }
+            
+            NSLog(@"We delivered these %lu pizza so far:", (unsigned long)deleveryService.log.count);
+            for (Pizza *p in deleveryService.log) {
+                NSLog(@"\t- %@", p);
+            }
         }
 
     }

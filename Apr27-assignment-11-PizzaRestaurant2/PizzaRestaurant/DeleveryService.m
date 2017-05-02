@@ -10,8 +10,18 @@
 
 @implementation DeleveryService
 
--(void)run {
-    [self.car run];
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        _log = [NSMutableArray array];
+    }
+    return self;
+}
+
+-(void)deliverPizza:(Pizza *)pizza
+{
+    [self.log addObject:pizza];
 }
 
 @end

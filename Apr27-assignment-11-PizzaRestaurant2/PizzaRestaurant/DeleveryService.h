@@ -8,11 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "DeliveryCar.h"
+#import "Pizza.h"
 
 @interface DeleveryService : NSObject
 
 @property (weak) DeliveryCar *car;
+@property (readonly) NSMutableArray *log;
 
--(void)run;
+-(void)deliverPizza:(Pizza *)pizza;
 
 @end

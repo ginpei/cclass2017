@@ -10,7 +10,8 @@
 
 @implementation DeliveryCar
 
--(void)run {
+-(void)deliverPizza:(Pizza *)pizza
+{
     NSLog(@"Drrrrrr");
 }
 

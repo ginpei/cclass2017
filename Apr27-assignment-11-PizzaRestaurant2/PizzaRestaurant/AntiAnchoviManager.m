@@ -23,7 +23,7 @@
 
 -(void)kitchenDidMakePizza:(Pizza *)pizza
 {
-    [self.deleveryService run];
+    [self.deleveryService deliverPizza:pizza];
 }
 
 @end

@@ -24,7 +24,7 @@
 -(void)kitchenDidMakePizza:(Pizza *)pizza
 {
     NSLog(@"Hi-ho! Here is your %@", pizza);
-    [self.deleveryService run];
+    [self.deleveryService deliverPizza:pizza];
 }
 
 @end
