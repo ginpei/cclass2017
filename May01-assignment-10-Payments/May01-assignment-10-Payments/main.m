@@ -36,7 +36,12 @@ int main(int argc, const char * argv[]) {
                 paymentGateway = NULL;
             }
             
-            [paymentGateway.paymentService processPaymentAmount:price];
+            if ([paymentGateway.paymentService canProcessPayment]) {
+                [paymentGateway.paymentService processPaymentAmount:price];
+            }
+            else {
+                [controller output:@"Not available..."];
+            }
         }
         
         [controller output:@"Bye!"];

@@ -14,4 +14,8 @@
     printf("You are paying $%ld at Amazon.\n", (long)amount);
 }
 
+-(BOOL)canProcessPayment {
+    return YES;
+}
+
 @end

@@ -14,4 +14,8 @@
     printf("You are paying $%ld at Stripe.\n", (long)amount);
 }
 
+-(BOOL)canProcessPayment {
+    return NO;
+}
+
 @end

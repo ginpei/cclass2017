@@ -14,4 +14,8 @@
     printf("You are paying $%ld at Paypal.\n", amount);
 }
 
+-(BOOL)canProcessPayment {
+    return YES;
+}
+
 @end
