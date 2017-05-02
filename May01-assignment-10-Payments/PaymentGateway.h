@@ -8,8 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol PaymentGateway <NSObject>
+@protocol PaymentService <NSObject>
 
 -(void)processPaymentAmount: (NSInteger) amount;
+
+@end
+
+@interface PaymentGateway : NSObject
+
+@property id<PaymentService> paymentService;
+
+-(void)setGatewayByName:(NSString *)name;
 
 @end

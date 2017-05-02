@@ -9,6 +9,6 @@
 #import <Cocoa/Cocoa.h>
 #import "PaymentGateway.h"
 
-@interface StripePaymentService : NSObject <PaymentGateway>
+@interface StripePaymentService : NSObject <PaymentService>
 
 @end

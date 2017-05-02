@@ -9,6 +9,6 @@
 #import <Cocoa/Cocoa.h>
 #import "PaymentGateway.h"
 
-@interface PaypalPaymentService : NSObject <PaymentGateway>
+@interface PaypalPaymentService : NSObject <PaymentService>
 
 @end
