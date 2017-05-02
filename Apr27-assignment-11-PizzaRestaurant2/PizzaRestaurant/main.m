@@ -23,21 +23,6 @@ int main(int argc, const char * argv[])
         Kitchen *restaurantKitchen = [Kitchen new];
         AntiAnchoviManager *antiAnchoviManager = [AntiAnchoviManager new];
         CheeryManager *cheeryManager = [CheeryManager new];
-        Pizza *pizza;
-        
-        restaurantKitchen.delegate = NULL;
-        pizza = [restaurantKitchen makePizzaWithSize:small toppings:@[@"cheese", @"tomato"]];
-        NSLog(@"%@", pizza);
-        restaurantKitchen.delegate = antiAnchoviManager;
-        pizza = [restaurantKitchen makePizzaWithSize:small toppings:@[@"cheese", @"tomato"]];
-        NSLog(@"%@", pizza);
-        pizza = [restaurantKitchen makePizzaWithSize:small toppings:@[@"cheese", @"anchovi"]];
-        NSLog(@"%@", pizza);
-        restaurantKitchen.delegate = cheeryManager;
-        pizza = [restaurantKitchen makePizzaWithSize:small toppings:@[@"cheese", @"anchovi"]];
-        NSLog(@"%@", pizza);
-        
-        return 0;
         
         while (TRUE) {
             // Loop forever
@@ -60,13 +45,33 @@ int main(int argc, const char * argv[])
                 pizza = [Pizza largePepperoni];
             }
             else {
+                NSLog(@"Who do you want to make pizza? 1. AntiAnchoviManager 2. CheeryManager 3. No managers");
+                NSLog(@"> ");
+                char str[100];
+                fgets (str, 100, stdin);
+                NSString *inputString = [[[NSString alloc] initWithUTF8String:str] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+                if ([inputString isEqualToString:@"1"]) {
+                    restaurantKitchen.delegate = antiAnchoviManager;
+                }
+                else if ([inputString isEqualToString:@"2"]) {
+                    restaurantKitchen.delegate = cheeryManager;
+                }
+                else {
+                    restaurantKitchen.delegate = NULL;
+                }
+                
                 // And then send some message to the kitchen...
                 PizzaSize size = [Pizza sizeFromString:keyword];
                 NSArray *toppings = [commandWords subarrayWithRange:NSMakeRange(1, commandWords.count - 1)];
-                pizza = [[Pizza alloc] initWithSize:size toppings:toppings];
+                pizza = [restaurantKitchen makePizzaWithSize:size toppings:toppings];
             }
             
-            NSLog(@"Here is a %@.", pizza);
+            if (pizza != NULL) {
+                NSLog(@"Here is a %@.", pizza);
+            }
+            else {
+                NSLog(@"I'm sorry but there are no pizza for you!");
+            }
         }
 
     }
