@@ -15,14 +15,16 @@
 {
     _players = [NSMutableArray array];
     for (int i = 0; i < amount; i++) {
-        Player *player = [Player new];
+        NSString *name = [NSString stringWithFormat:@"Player %d", i + 1];  // "Player 1"
+        Player *player = [Player playerWithName:name];
         [_players addObject:player];
     }
 }
 
 -(void)roll {
     for (Player *player in _players) {
-        [player roll];
+        NSInteger dieNumber = [player roll];
+        NSLog(@"[%@]: Die[%ld], Square[%ld]", player.name, dieNumber, (long)player.currentSquare);
     }
 }
 

@@ -10,8 +10,10 @@
 
 @interface Player : NSObject
 
+@property (readonly) NSString *name;
 @property (readonly) NSInteger currentSquare;
 
++(instancetype)playerWithName:(NSString*)name;
 -(NSInteger)roll;
 
 @end

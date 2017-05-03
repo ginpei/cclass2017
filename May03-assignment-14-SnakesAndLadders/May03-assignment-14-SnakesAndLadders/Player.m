@@ -9,7 +9,6 @@
 #import "Player.h"
 
 @interface Player() {
-@private NSString *name;
 }
 
 @end
@@ -31,11 +30,11 @@
     return self;
 }
 
-- (instancetype)initWithName: (NSString *) aName
+- (instancetype)initWithName: (NSString *) name
 {
     self = [self init];
     if (self) {
-        name = aName;
+        _name = name;
     }
     return self;
 }
@@ -43,7 +42,6 @@
 -(NSInteger)roll {
     int dieNumber = arc4random_uniform(6) + 1;
     _currentSquare += dieNumber;
-    NSLog(@"Die[%d], Square[%ld]", dieNumber, (long)_currentSquare);
     return dieNumber;
 }
 
