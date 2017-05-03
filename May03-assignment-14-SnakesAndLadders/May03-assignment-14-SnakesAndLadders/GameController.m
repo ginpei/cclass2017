@@ -7,11 +7,23 @@
 //
 
 #import "GameController.h"
+#import "Player.h"
 
 @implementation GameController
 
+-(void)createPlayers: (NSInteger) amount
+{
+    _players = [NSMutableArray array];
+    for (int i = 0; i < amount; i++) {
+        Player *player = [Player new];
+        [_players addObject:player];
+    }
+}
+
 -(void)roll {
-    [self output:@"Roll!"];
+    for (Player *player in _players) {
+        [player roll];
+    }
 }
 
 @end
