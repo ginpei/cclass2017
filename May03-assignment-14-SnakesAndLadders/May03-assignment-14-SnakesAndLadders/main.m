@@ -7,11 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "UiController.h"
+#import "GameController.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        UiController *controller = [UiController new];
+        GameController *controller = [GameController new];
         
         while (!controller.finished) {
             NSString *input = [controller ask:@"Hit return to roll, enter help for help."];
@@ -22,12 +22,11 @@ int main(int argc, const char * argv[]) {
             else if ([input isEqualToString:@"help"]) {
                 [controller printHelp];
             }
-            else if ([input isEqualToString:@""]) {
-                // TODO
-                [controller output:@"roll!"];
+            else if ([input isEqualToString:@""] || [input isEqualToString:@"r"] || [input isEqualToString:@"roll"]) {
+                [controller roll];
             }
             else {
-                [controller output:input];
+                // do nothing
             }
             
             [controller outputEmptyLine];

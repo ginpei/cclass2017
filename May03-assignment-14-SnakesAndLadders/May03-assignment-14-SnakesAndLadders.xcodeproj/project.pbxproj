@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		E4C093B71EBA78C30057BBC6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E4C093B61EBA78C30057BBC6 /* main.m */; };
 		E4C093CB1EBA795C0057BBC6 /* UiController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4C093CA1EBA795C0057BBC6 /* UiController.m */; };
+		E4C093CE1EBA7DA00057BBC6 /* GameController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4C093CD1EBA7DA00057BBC6 /* GameController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +29,8 @@
 		E4C093B61EBA78C30057BBC6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E4C093C91EBA795C0057BBC6 /* UiController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UiController.h; sourceTree = "<group>"; };
 		E4C093CA1EBA795C0057BBC6 /* UiController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UiController.m; sourceTree = "<group>"; };
+		E4C093CC1EBA7DA00057BBC6 /* GameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameController.h; sourceTree = "<group>"; };
+		E4C093CD1EBA7DA00057BBC6 /* GameController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +72,8 @@
 		E4C093C51EBA79040057BBC6 /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				E4C093CC1EBA7DA00057BBC6 /* GameController.h */,
+				E4C093CD1EBA7DA00057BBC6 /* GameController.m */,
 				E4C093C91EBA795C0057BBC6 /* UiController.h */,
 				E4C093CA1EBA795C0057BBC6 /* UiController.m */,
 			);
@@ -132,6 +137,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4C093CE1EBA7DA00057BBC6 /* GameController.m in Sources */,
 				E4C093CB1EBA795C0057BBC6 /* UiController.m in Sources */,
 				E4C093B71EBA78C30057BBC6 /* main.m in Sources */,
 			);
