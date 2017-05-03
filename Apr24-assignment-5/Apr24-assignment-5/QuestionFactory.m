@@ -15,23 +15,14 @@
 @implementation QuestionFactory
 
 - (Question *) generateRandomQuestion {
-    Question *question;
-    int rand = arc4random_uniform(4);
-    if (rand == 0) {
-        question = [AdditionQuestion newQuestion];
-    }
-    else if (rand == 1) {
-        question = [SubtractionQuestion newQuestion];
-    }
-    else if (rand == 2) {
-        question = [MultiplicationQuestion newQuestion];
-    }
-    else if (rand == 3) {
-        question = [DivisionQuestion newQuestion];
-    }
-    else {
-        @throw @"WTF";
-    }
+    NSArray *questionClassNames = @[
+                                    @"AdditionQuestion",
+                                    @"SubtractionQuestion",
+                                    @"MultiplicationQuestion",
+                                    @"DivisionQuestion",
+                                    ];
+    NSString *className = questionClassNames[arc4random_uniform((int) questionClassNames.count)];
+    Question *question = [NSClassFromString(className) newQuestion];
     return question;
 }
 
