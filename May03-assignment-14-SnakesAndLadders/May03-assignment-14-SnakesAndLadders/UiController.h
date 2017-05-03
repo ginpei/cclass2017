@@ -16,5 +16,7 @@
 -(void)finish;
 -(NSString *)ask: (NSString *)question;
 -(void)output: (NSString *)message;
+-(void)outputEmptyLine;
+-(void)printHelp;
 
 @end

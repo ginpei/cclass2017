@@ -14,14 +14,23 @@ int main(int argc, const char * argv[]) {
         UiController *controller = [UiController new];
         
         while (!controller.finished) {
-            NSString *input = [controller ask:@"Hello!"];
+            NSString *input = [controller ask:@"Hit return to roll, enter help for help."];
             if (input == NULL || [input isEqualToString:@"quit"]) {
                 [controller finish];
                 continue;
             }
+            else if ([input isEqualToString:@"help"]) {
+                [controller printHelp];
+            }
+            else if ([input isEqualToString:@""]) {
+                // TODO
+                [controller output:@"roll!"];
+            }
             else {
                 [controller output:input];
             }
+            
+            [controller outputEmptyLine];
         }
     }
     return 0;

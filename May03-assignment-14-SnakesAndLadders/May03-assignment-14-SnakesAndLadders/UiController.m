@@ -27,8 +27,8 @@ BOOL finished = false;
 }
 
 -(NSString *)ask: (NSString *)question {
-    printf("%s\n", question.UTF8String);
-    printf("> ");
+    [self output:question];
+    [self outputWithoutNewLine:@"> "];
     
     NSString *result = NULL;
     
@@ -71,6 +71,23 @@ BOOL finished = false;
 
 -(void)output: (NSString *)message {
     printf("%s\n", message.UTF8String);
+}
+
+-(void)outputWithoutNewLine: (NSString *)message {
+    printf("%s", message.UTF8String);
+}
+
+-(void)outputEmptyLine {
+    [self output:@""];
+}
+
+-(void)printHelp {
+    NSString *text = [@[
+                       @"---Help---",
+                       @"\t- roll, r, (empty) - Roll your die.",
+                       @"\t- quit - Quit the game.",
+                       ] componentsJoinedByString:@"\n"];
+    [self output:text];
 }
 
 @end
