@@ -81,25 +81,33 @@
 		E47E168B1EAEA60F00D54F6B /* Apr24-assignment-5 */ = {
 			isa = PBXGroup;
 			children = (
-				E47E16951EAEA62C00D54F6B /* AdditionQuestion.h */,
-				E47E16961EAEA62C00D54F6B /* AdditionQuestion.m */,
+				E4C093A91EBA754B0057BBC6 /* model-question */,
 				E47E16931EAEA62C00D54F6B /* GameManager.h */,
 				E47E16941EAEA62C00D54F6B /* GameManager.m */,
-				E44DB95C1EAFEF6E00F5A3A5 /* DivisionQuestion.h */,
-				E44DB95D1EAFEF6E00F5A3A5 /* DivisionQuestion.m */,
 				E47E16971EAEA62C00D54F6B /* InputHandler.h */,
 				E47E16981EAEA62C00D54F6B /* InputHandler.m */,
 				E47E168C1EAEA60F00D54F6B /* main.m */,
-				E49E84011EAEC2DC0093950F /* Question.h */,
-				E49E84021EAEC2DC0093950F /* Question.m */,
-				E49E84041EAEC6690093950F /* SubtractionQuestion.h */,
-				E49E84051EAEC6690093950F /* SubtractionQuestion.m */,
-				E44DB9591EAFEEF400F5A3A5 /* MultiplicationQuestion.h */,
-				E44DB95A1EAFEEF400F5A3A5 /* MultiplicationQuestion.m */,
-				E44DB9721EAFF48500F5A3A5 /* QuestionFactory.h */,
-				E44DB9731EAFF48500F5A3A5 /* QuestionFactory.m */,
 			);
 			path = "Apr24-assignment-5";
+			sourceTree = "<group>";
+		};
+		E4C093A91EBA754B0057BBC6 /* model-question */ = {
+			isa = PBXGroup;
+			children = (
+				E47E16951EAEA62C00D54F6B /* AdditionQuestion.h */,
+				E47E16961EAEA62C00D54F6B /* AdditionQuestion.m */,
+				E44DB95C1EAFEF6E00F5A3A5 /* DivisionQuestion.h */,
+				E44DB95D1EAFEF6E00F5A3A5 /* DivisionQuestion.m */,
+				E44DB9591EAFEEF400F5A3A5 /* MultiplicationQuestion.h */,
+				E44DB95A1EAFEEF400F5A3A5 /* MultiplicationQuestion.m */,
+				E49E84011EAEC2DC0093950F /* Question.h */,
+				E49E84021EAEC2DC0093950F /* Question.m */,
+				E44DB9721EAFF48500F5A3A5 /* QuestionFactory.h */,
+				E44DB9731EAFF48500F5A3A5 /* QuestionFactory.m */,
+				E49E84041EAEC6690093950F /* SubtractionQuestion.h */,
+				E49E84051EAEC6690093950F /* SubtractionQuestion.m */,
+			);
+			name = "model-question";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
