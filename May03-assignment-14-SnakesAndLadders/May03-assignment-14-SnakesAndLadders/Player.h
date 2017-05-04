@@ -12,6 +12,7 @@
 
 @property (readonly) NSString *name;
 @property (readonly) NSInteger currentSquare;
+@property BOOL gameOver;
 
 +(instancetype)playerWithName:(NSString*)name;
 -(NSInteger)roll;

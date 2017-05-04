@@ -9,6 +9,7 @@
 #import "Player.h"
 
 @interface Player() {
+@private NSInteger goal;
 }
 
 @end
@@ -25,7 +26,9 @@
 {
     self = [super init];
     if (self) {
-        _currentSquare = 0;
+        goal = 100;
+        _currentSquare = 1;
+        _gameOver = NO;
     }
     return self;
 }
@@ -42,6 +45,15 @@
 -(NSInteger)roll {
     int dieNumber = arc4random_uniform(6) + 1;
     _currentSquare += dieNumber;
+    
+    if (_currentSquare >= goal) {
+        _currentSquare = goal;
+        _gameOver = YES;
+    }
+    else if (_currentSquare < 1) {
+        _currentSquare = 1;
+    }
+    
     return dieNumber;
 }
 

@@ -74,11 +74,34 @@
             [self output:[NSString stringWithFormat:@"Now you are at [%ld]", (long)player.currentSquare]];
         }
     }
+    
+    if ([self isGameFinished]) {
+        [self finish];
+    }
+}
+
+-(void)finish
+{
+    [super finish];
+    [self output:@"Game Over!"];
 }
 
 -(NSNumber*)getDestinationFrom:(NSInteger)from
 {
     return gameLogic[[NSString stringWithFormat:@"%ld", from]];
+}
+
+-(BOOL)isGameFinished
+{
+    BOOL finished = YES;
+    for (Player *p in _players) {
+        if (!p.gameOver) {
+            finished = NO;
+            break;
+        }
+    }
+    
+    return finished;
 }
 
 @end
