@@ -38,7 +38,8 @@ BOOL finished = false;
         NSString *strLine = [NSString stringWithCString:userInput encoding:NSUTF8StringEncoding];
         NSCharacterSet *blanks = [NSCharacterSet whitespaceAndNewlineCharacterSet];
         NSString *trimmedLine = [strLine stringByTrimmingCharactersInSet:blanks];
-        result = trimmedLine;
+        NSString *lowercasedLine = [trimmedLine lowercaseString];
+        result = lowercasedLine;
         
     }
 
