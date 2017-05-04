@@ -45,4 +45,9 @@
     return dieNumber;
 }
 
+-(void)moveTo:(NSInteger)destination
+{
+    _currentSquare = destination;
+}
+
 @end

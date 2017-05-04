@@ -15,5 +15,6 @@
 
 +(instancetype)playerWithName:(NSString*)name;
 -(NSInteger)roll;
+-(void)moveTo:(NSInteger)destination;
 
 @end

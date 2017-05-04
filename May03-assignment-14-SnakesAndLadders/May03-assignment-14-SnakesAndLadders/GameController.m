@@ -44,6 +44,7 @@
     [gameLogic setValue:@78 forKey:@"99"];
 }
 
+
 -(void)createPlayers: (NSInteger) amount
 {
     _players = [NSMutableArray array];
@@ -58,7 +59,26 @@
     for (Player *player in _players) {
         NSInteger dieNumber = [player roll];
         NSLog(@"[%@]: Die[%ld], Square[%ld]", player.name, dieNumber, (long)player.currentSquare);
+        
+        NSNumber *destination = [self getDestinationFrom:player.currentSquare];
+        if (destination != NULL) {
+            // if snake
+            if (destination.integerValue < player.currentSquare) {
+                [self output:@"Oops, snake!"];
+            }
+            // if ladder
+            else {
+                [self output:@"Yay, ladder!"];
+            }
+            [player moveTo:destination.integerValue];
+            [self output:[NSString stringWithFormat:@"Now you are at [%ld]", (long)player.currentSquare]];
+        }
     }
+}
+
+-(NSNumber*)getDestinationFrom:(NSInteger)from
+{
+    return gameLogic[[NSString stringWithFormat:@"%ld", from]];
 }
 
 @end
