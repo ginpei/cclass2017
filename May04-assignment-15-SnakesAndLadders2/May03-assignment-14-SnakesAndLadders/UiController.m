@@ -74,6 +74,15 @@ BOOL finished = false;
     printf("%s\n", message.UTF8String);
 }
 
+-(void)output: (NSString *)message withIndentLv:(NSInteger)lv {
+    NSMutableString *indent = [NSMutableString string];
+    for (int i = 0; i < lv; i++) {
+        [indent appendString:@"\t"];
+    }
+    
+    [self output:[indent stringByAppendingString:message]];
+}
+
 -(void)outputWithoutNewLine: (NSString *)message {
     printf("%s", message.UTF8String);
 }

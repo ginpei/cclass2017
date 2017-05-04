@@ -64,14 +64,14 @@
         if (destination != NULL) {
             // if snake
             if (destination.integerValue < player.currentSquare) {
-                [self output:@"Oops, snake!"];
+                [self output:@"Oops, snake!" withIndentLv:1];
             }
             // if ladder
             else {
-                [self output:@"Yay, ladder!"];
+                [self output:@"Yay, ladder!" withIndentLv:1];
             }
             [player moveTo:destination.integerValue];
-            [self output:[NSString stringWithFormat:@"Now you are at [%ld]", (long)player.currentSquare]];
+            [self output:[NSString stringWithFormat:@"Now you are at [%ld]", (long)player.currentSquare] withIndentLv:1];
         }
     }
     
