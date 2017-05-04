@@ -50,6 +50,7 @@
     if (amount < 1) {
         amount = 2;
     }
+    [self output:[NSString stringWithFormat:@"%ld players.", amount]];
     
     _players = [NSMutableArray array];
     for (int i = 0; i < amount; i++) {
