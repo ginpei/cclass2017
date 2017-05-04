@@ -58,7 +58,7 @@
 -(void)roll {
     for (Player *player in _players) {
         NSInteger dieNumber = [player roll];
-        NSLog(@"[%@]: Die[%ld], Square[%ld]", player.name, dieNumber, (long)player.currentSquare);
+        [self output:[NSString stringWithFormat:@"[%@]: Die[%ld], Square[%ld]", player.name, dieNumber, (long)player.currentSquare]];
         
         NSNumber *destination = [self getDestinationFrom:player.currentSquare];
         if (destination != NULL) {
