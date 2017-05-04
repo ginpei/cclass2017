@@ -62,6 +62,12 @@
 
 -(void)roll {
     for (Player *player in _players) {
+        // skip finished players
+        if (player.gameOver) {
+            [self output:[NSString stringWithFormat:@"[%@] has been done", player.name]];
+            continue;
+        }
+        
         NSInteger dieNumber = [player roll];
         [self output:[NSString stringWithFormat:@"[%@]: Die[%ld], Square[%ld]", player.name, dieNumber, (long)player.currentSquare]];
         
@@ -77,6 +83,12 @@
             }
             [player moveTo:destination.integerValue];
             [self output:[NSString stringWithFormat:@"Now you are at [%ld]", (long)player.currentSquare] withIndentLv:1];
+        }
+        
+        if (player.gameOver) {
+            [self output:@"- - - - - - - -" withIndentLv:1];
+            [self output:[NSString stringWithFormat:@"[%@] reached the goal!!", player.name] withIndentLv:1];
+            [self output:@"- - - - - - - -" withIndentLv:1];
         }
     }
     
