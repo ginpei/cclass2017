@@ -15,7 +15,7 @@ int main(int argc, const char * argv[]) {
         [controller createPlayers:1];
         
         while (!controller.finished) {
-            NSString *input = [controller ask:@"Hit return to roll, enter help for help."];
+            NSString *input = [controller ask:@"Hit return to roll, enter \"help\" for help."];
             if (input == NULL || [input isEqualToString:@"quit"]) {
                 [controller finish];
                 continue;
