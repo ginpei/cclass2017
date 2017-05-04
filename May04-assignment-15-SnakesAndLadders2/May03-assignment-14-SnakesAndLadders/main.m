@@ -12,7 +12,9 @@
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         GameController *controller = [GameController new];
-        [controller createPlayers:1];
+        
+        NSString *numPlayersStr = [controller ask:@"How many players?"];
+        [controller createPlayers:numPlayersStr.integerValue];
         
         while (!controller.finished) {
             NSString *input = [controller ask:@"Hit return to roll, enter \"help\" for help."];
