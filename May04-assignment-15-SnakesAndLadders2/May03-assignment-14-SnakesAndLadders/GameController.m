@@ -47,6 +47,10 @@
 
 -(void)createPlayers: (NSInteger) amount
 {
+    if (amount < 1) {
+        amount = 2;
+    }
+    
     _players = [NSMutableArray array];
     for (int i = 0; i < amount; i++) {
         NSString *name = [NSString stringWithFormat:@"Player %d", i + 1];  // "Player 1"
