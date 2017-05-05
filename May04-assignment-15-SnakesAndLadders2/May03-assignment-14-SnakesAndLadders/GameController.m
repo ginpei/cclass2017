@@ -51,7 +51,7 @@
     if (amount < 1) {
         amount = 2;
     }
-    [self output:[NSString stringWithFormat:@"%ld players.", amount]];
+    [self outputWithFormat:@"%ld players.", amount];
     
     _players = [NSMutableArray array];
     for (int i = 0; i < amount; i++) {
@@ -65,7 +65,7 @@
     for (Player *player in _players) {
         // skip finished players
         if (player.gameOver) {
-            [self output:[NSString stringWithFormat:@"[%@]", player.name]];
+            [self outputWithFormat:@"[%@]", player.name];
             [self output:@"has arrived at the goal 🙂" withIndentLv:1];
             continue;
         }
@@ -81,7 +81,7 @@
 -(void)rollPlayer:(Player*)player
 {
     NSInteger dieNumber = [player roll];
-    [self output:[NSString stringWithFormat:@"[%@]", player.name]];
+    [self outputWithFormat:@"[%@]", player.name];
     [self output:[NSString stringWithFormat:@"Die[%ld]", dieNumber] withIndentLv:1];
     NSInteger firstLocation = player.currentSquare;
     

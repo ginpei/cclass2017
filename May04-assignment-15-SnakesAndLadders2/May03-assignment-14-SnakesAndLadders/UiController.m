@@ -64,6 +64,14 @@
     printf("%s\n", message.UTF8String);
 }
 
+-(void)outputWithFormat: (NSString *)format, ... {
+    va_list args;
+    va_start(args, format);
+    NSString *message = [[NSString alloc] initWithFormat:format arguments:args];
+    va_end(args);
+    [self output:message];
+}
+
 -(void)output: (NSString *)message withIndentLv:(NSInteger)lv {
     NSMutableString *indent = [NSMutableString string];
     for (int i = 0; i < lv; i++) {
