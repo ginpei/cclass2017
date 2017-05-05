@@ -14,6 +14,7 @@ BOOL finished = false;
 
 -(instancetype)init {
     self = [super init];
+    finished = false;
     _lineMax = 1024;
     return self;
 }

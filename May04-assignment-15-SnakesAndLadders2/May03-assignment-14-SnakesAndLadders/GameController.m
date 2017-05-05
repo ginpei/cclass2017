@@ -22,6 +22,7 @@
 {
     self = [super init];
     if (self) {
+        _players = NULL;
         gameLogic = [NSMutableDictionary dictionary];
         [self defineGameLogics];
     }
