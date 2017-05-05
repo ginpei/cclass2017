@@ -65,26 +65,33 @@
     for (Player *player in _players) {
         // skip finished players
         if (player.gameOver) {
-            [self output:[NSString stringWithFormat:@"[%@] has been done", player.name]];
+            [self output:[NSString stringWithFormat:@"[%@]", player.name]];
+            [self output:@"has been done" withIndentLv:1];
             continue;
         }
         
         NSInteger dieNumber = [player roll];
-        [self output:[NSString stringWithFormat:@"[%@]: Die[%ld], Square[%ld]", player.name, dieNumber, (long)player.currentSquare]];
+        [self output:[NSString stringWithFormat:@"[%@]", player.name]];
+        [self output:[NSString stringWithFormat:@"Die[%ld]", dieNumber] withIndentLv:1];
+        NSInteger firstLocation = player.currentSquare;
         
-        NSNumber *destination = [self getDestinationFrom:player.currentSquare];
+        NSNumber *destination = [self getDestinationFrom:firstLocation];
         if (destination != NULL) {
+            NSString *comment;
             // if snake
             if (destination.integerValue < player.currentSquare) {
-                [self output:@"Oops, snake!" withIndentLv:1];
+                comment = @"Oops, snake!";
             }
             // if ladder
             else {
-                [self output:@"Yay, ladder!" withIndentLv:1];
+                comment = @"Yay, ladder!";
             }
+            
             [player moveTo:destination.integerValue];
-            [self output:[NSString stringWithFormat:@"Now you are at [%ld]", (long)player.currentSquare] withIndentLv:1];
+            [self output:[NSString stringWithFormat:@"At the square [%ld]... %@", firstLocation, comment] withIndentLv:1];
         }
+        
+        [self output:[NSString stringWithFormat:@"---> Square[%ld]", (long)player.currentSquare] withIndentLv:1];
         
         if (player.gameOver) {
             [self output:@"- - - - - - - -" withIndentLv:1];
