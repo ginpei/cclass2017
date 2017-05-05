@@ -70,38 +70,43 @@
             continue;
         }
         
-        NSInteger dieNumber = [player roll];
-        [self output:[NSString stringWithFormat:@"[%@]", player.name]];
-        [self output:[NSString stringWithFormat:@"Die[%ld]", dieNumber] withIndentLv:1];
-        NSInteger firstLocation = player.currentSquare;
-        
-        NSNumber *destination = [self getDestinationFrom:firstLocation];
-        if (destination != NULL) {
-            NSString *comment;
-            // if snake
-            if (destination.integerValue < player.currentSquare) {
-                comment = @"Oops, snake!";
-            }
-            // if ladder
-            else {
-                comment = @"Yay, ladder!";
-            }
-            
-            [player moveTo:destination.integerValue];
-            [self output:[NSString stringWithFormat:@"At the square [%ld]... %@", firstLocation, comment] withIndentLv:1];
-        }
-        
-        [self output:[NSString stringWithFormat:@"---> Square[%ld]", (long)player.currentSquare] withIndentLv:1];
-        
-        if (player.gameOver) {
-            [self output:@"- - - - - - - -" withIndentLv:1];
-            [self output:[NSString stringWithFormat:@"[%@] reached the goal!!", player.name] withIndentLv:1];
-            [self output:@"- - - - - - - -" withIndentLv:1];
-        }
+        [self rollPlayer:player];
     }
     
     if ([self isGameFinished]) {
         [self finish];
+    }
+}
+
+-(void)rollPlayer:(Player*)player
+{
+    NSInteger dieNumber = [player roll];
+    [self output:[NSString stringWithFormat:@"[%@]", player.name]];
+    [self output:[NSString stringWithFormat:@"Die[%ld]", dieNumber] withIndentLv:1];
+    NSInteger firstLocation = player.currentSquare;
+    
+    NSNumber *destination = [self getDestinationFrom:firstLocation];
+    if (destination != NULL) {
+        NSString *comment;
+        // if snake
+        if (destination.integerValue < player.currentSquare) {
+            comment = @"Oops, snake!";
+        }
+        // if ladder
+        else {
+            comment = @"Yay, ladder!";
+        }
+        
+        [player moveTo:destination.integerValue];
+        [self output:[NSString stringWithFormat:@"At the square [%ld]... %@", firstLocation, comment] withIndentLv:1];
+    }
+    
+    [self output:[NSString stringWithFormat:@"---> Square[%ld]", (long)player.currentSquare] withIndentLv:1];
+    
+    if (player.gameOver) {
+        [self output:@"- - - - - - - -" withIndentLv:1];
+        [self output:[NSString stringWithFormat:@"[%@] reached the goal!!", player.name] withIndentLv:1];
+        [self output:@"- - - - - - - -" withIndentLv:1];
     }
 }
 
