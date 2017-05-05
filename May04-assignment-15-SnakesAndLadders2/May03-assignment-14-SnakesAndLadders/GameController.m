@@ -66,7 +66,7 @@
         // skip finished players
         if (player.gameOver) {
             [self output:[NSString stringWithFormat:@"[%@]", player.name]];
-            [self output:@"has been done" withIndentLv:1];
+            [self output:@"has arrived at the goal 🙂" withIndentLv:1];
             continue;
         }
         
@@ -90,11 +90,11 @@
         NSString *comment;
         // if snake
         if (destination.integerValue < player.currentSquare) {
-            comment = @"Oops, snake!";
+            comment = @"Oops, snake! 🐍";
         }
         // if ladder
         else {
-            comment = @"Yay, ladder!";
+            comment = @"Yay, ladder! 🚀";
         }
         
         [player moveTo:destination.integerValue];
@@ -104,9 +104,9 @@
     [self output:[NSString stringWithFormat:@"---> Square[%ld]", (long)player.currentSquare] withIndentLv:1];
     
     if (player.gameOver) {
-        [self output:@"- - - - - - - -" withIndentLv:1];
-        [self output:[NSString stringWithFormat:@"[%@] reached the goal!!", player.name] withIndentLv:1];
-        [self output:@"- - - - - - - -" withIndentLv:1];
+        [self output:@"🎊 🎉 🎊 🎉 🎊 🎉 🎊 🎉" withIndentLv:1];
+        [self output:[NSString stringWithFormat:@"✨ [%@] reached the goal!! ✨", player.name] withIndentLv:1];
+        [self output:@"🎉 🎊 🎉 🎊 🎉 🎊 🎉 🎊" withIndentLv:1];
     }
 }
 
