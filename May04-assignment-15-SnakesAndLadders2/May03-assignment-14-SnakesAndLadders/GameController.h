@@ -12,8 +12,10 @@
 @interface GameController : UiController
 
 @property (readonly) NSMutableArray *players;
+@property (readonly) NSMutableArray *reachedPlayers;
 
 -(void)createPlayers: (NSInteger) amount;
 -(void)roll;
+-(void)printRank;
 
 @end

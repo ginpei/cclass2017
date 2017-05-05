@@ -23,6 +23,7 @@
     self = [super init];
     if (self) {
         _players = NULL;
+        _reachedPlayers = [NSMutableArray array];
         gameLogic = [NSMutableDictionary dictionary];
         [self defineGameLogics];
     }
@@ -69,10 +70,13 @@
             [self increaseIndent];
             [self output:@"has arrived at the goal 🙂"];
             [self decreaseIndent];
-            continue;
         }
-        
-        [self rollPlayer:player];
+        else {
+            [self rollPlayer:player];
+            if ([player gameOver]) {
+                [_reachedPlayers addObject:player];
+            }
+        }
     }
     
     if ([self isGameFinished]) {
@@ -138,6 +142,15 @@
     }
     
     return finished;
+}
+
+-(void)printRank
+{
+    NSMutableArray *names = [NSMutableArray array];
+    for (Player *p in _reachedPlayers) {
+        [names addObject:p.name];
+    }
+    [self outputWithFormat:@"Rank: %@", [names componentsJoinedByString:@", "]];
 }
 
 @end

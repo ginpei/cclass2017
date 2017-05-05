@@ -36,6 +36,8 @@ int main(int argc, const char * argv[]) {
                 [controller outputEmptyLine];
             }
             
+            [controller printRank];
+            
             if ([[controller ask:@"Play again? (y/n)"] isEqualToString:@"y"]) {
                 [controller init];  // no need to use the result
             }
