@@ -18,9 +18,10 @@
 -(NSString *)askWithFormat: (NSString *)format, ...;
 -(void)output: (NSString *)message;
 -(void)outputWithFormat: (NSString *)format, ...;
--(void)output: (NSString *)message withIndentLv:(NSInteger)lv;
 -(void)outputWithoutNewLine: (NSString *)message;
 -(void)outputEmptyLine;
+-(NSInteger)increaseIndent;
+-(NSInteger)decreaseIndent;
 -(void)printHelp;
 
 @end

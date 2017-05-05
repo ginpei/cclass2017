@@ -66,7 +66,9 @@
         // skip finished players
         if (player.gameOver) {
             [self outputWithFormat:@"[%@]", player.name];
-            [self output:@"has arrived at the goal 🙂" withIndentLv:1];
+            [self increaseIndent];
+            [self output:@"has arrived at the goal 🙂"];
+            [self decreaseIndent];
             continue;
         }
         
@@ -82,7 +84,9 @@
 {
     NSInteger dieNumber = [player roll];
     [self outputWithFormat:@"[%@]", player.name];
-    [self output:[NSString stringWithFormat:@"Die[%ld]", dieNumber] withIndentLv:1];
+    [self increaseIndent];
+    
+    [self output:[NSString stringWithFormat:@"Die[%ld]", dieNumber]];
     NSInteger firstLocation = player.currentSquare;
     
     NSNumber *destination = [self getDestinationFrom:firstLocation];
@@ -98,16 +102,18 @@
         }
         
         [player moveTo:destination.integerValue];
-        [self output:[NSString stringWithFormat:@"At the square [%ld]... %@", firstLocation, comment] withIndentLv:1];
+        [self outputWithFormat:@"At the square [%ld]... %@", firstLocation, comment];
     }
     
-    [self output:[NSString stringWithFormat:@"---> Square[%ld]", (long)player.currentSquare] withIndentLv:1];
+    [self outputWithFormat:@"---> Square[%ld]", (long)player.currentSquare];
     
     if (player.gameOver) {
-        [self output:@"🎊 🎉 🎊 🎉 🎊 🎉 🎊 🎉" withIndentLv:1];
-        [self output:[NSString stringWithFormat:@"✨ [%@] reached the goal!! ✨", player.name] withIndentLv:1];
-        [self output:@"🎉 🎊 🎉 🎊 🎉 🎊 🎉 🎊" withIndentLv:1];
+        [self output:@"🎊 🎉 🎊 🎉 🎊 🎉 🎊 🎉"];
+        [self outputWithFormat:@"✨ [%@] reached the goal!! ✨", player.name];
+        [self output:@"🎉 🎊 🎉 🎊 🎉 🎊 🎉 🎊"];
     }
+    
+    [self decreaseIndent];
 }
 
 -(void)finish

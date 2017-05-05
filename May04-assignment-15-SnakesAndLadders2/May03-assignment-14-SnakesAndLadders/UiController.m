@@ -10,6 +10,7 @@
 
 @interface UiController() {
 @private BOOL finished;
+@private NSInteger indentLv;
 }
 
 @end
@@ -19,6 +20,7 @@
 -(instancetype)init {
     self = [super init];
     finished = false;
+    indentLv = 0;
     _lineMax = 1024;
     return self;
 }
@@ -61,7 +63,14 @@
 }
 
 -(void)output: (NSString *)message {
-    printf("%s\n", message.UTF8String);
+    NSMutableString *indent = [NSMutableString string];
+    for (int i = 0; i < indentLv; i++) {
+        [indent appendString:@"\t"];
+    }
+    
+    NSString *line = [indent stringByAppendingString:message];
+    
+    printf("%s\n", line.UTF8String);
 }
 
 -(void)outputWithFormat: (NSString *)format, ... {
@@ -72,21 +81,22 @@
     [self output:message];
 }
 
--(void)output: (NSString *)message withIndentLv:(NSInteger)lv {
-    NSMutableString *indent = [NSMutableString string];
-    for (int i = 0; i < lv; i++) {
-        [indent appendString:@"\t"];
-    }
-    
-    [self output:[indent stringByAppendingString:message]];
-}
-
 -(void)outputWithoutNewLine: (NSString *)message {
     printf("%s", message.UTF8String);
 }
 
 -(void)outputEmptyLine {
     [self output:@""];
+}
+
+-(NSInteger)increaseIndent {
+    indentLv += 1;
+    return indentLv;
+}
+
+-(NSInteger)decreaseIndent {
+    indentLv -= 1;
+    return indentLv;
 }
 
 -(void)printHelp {
