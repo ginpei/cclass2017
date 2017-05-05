@@ -15,6 +15,7 @@
 -(BOOL)finished;
 -(void)finish;
 -(NSString *)ask: (NSString *)question;
+-(NSString *)askWithFormat: (NSString *)format, ...;
 -(void)output: (NSString *)message;
 -(void)output: (NSString *)message withIndentLv:(NSInteger)lv;
 -(void)outputWithoutNewLine: (NSString *)message;

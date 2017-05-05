@@ -52,28 +52,13 @@
     return result;
 }
 
-//-(NSArray *)ask: (NSString *)question {
-//    printf("%s\n", question.UTF8String);
-//    printf("> ");
-//    
-//    NSArray *result;
-//    
-//    char line[_lineMax];
-//    const char *userInput = fgets(line, _lineMax, stdin);
-//    if (userInput != NULL) {
-//        NSString *strLine = [NSString stringWithCString:userInput encoding:NSUTF8StringEncoding];
-//        NSCharacterSet *blanks = [NSCharacterSet whitespaceAndNewlineCharacterSet];
-//        NSString *trimmedLine = [strLine stringByTrimmingCharactersInSet:blanks];
-//        result = [trimmedLine componentsSeparatedByCharactersInSet:blanks];
-//        
-//    }
-//    else {
-//        result = @[];
-//    }
-//    
-//    
-//    return result;
-//}
+-(NSString *)askWithFormat: (NSString *)format, ... {
+    va_list args;
+    va_start(args, format);
+    NSString *message = [[NSString alloc] initWithFormat:format arguments:args];
+    va_end(args);
+    return [self ask:message];
+}
 
 -(void)output: (NSString *)message {
     printf("%s\n", message.UTF8String);
