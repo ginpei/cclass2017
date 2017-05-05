@@ -94,11 +94,11 @@
         NSString *comment;
         // if snake
         if (destination.integerValue < player.currentSquare) {
-            comment = @"Oops, snake! 🐍";
+            comment = @"🐍 Oops, snake! ⤵️⤵️";
         }
         // if ladder
         else {
-            comment = @"Yay, ladder! 🚀";
+            comment = @"🚀 Yay, ladder! ⤴️⤴️";
         }
         
         [player moveTo:destination.integerValue];
