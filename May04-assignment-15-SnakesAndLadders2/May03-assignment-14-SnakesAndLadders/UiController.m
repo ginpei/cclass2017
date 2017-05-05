@@ -8,9 +8,13 @@
 
 #import "UiController.h"
 
-@implementation UiController
+@interface UiController() {
+@private BOOL finished;
+}
 
-BOOL finished = false;
+@end
+
+@implementation UiController
 
 -(instancetype)init {
     self = [super init];
